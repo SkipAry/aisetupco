@@ -3,7 +3,7 @@ region: blr
 static_sites:
   - name: web
     github:
-      repo: binaryninja437/firstweb
+      repo: SkipAry/aisetupco
       branch: main
       deploy_on_push: true
     source_dir: /
