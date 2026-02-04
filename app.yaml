@@ -1,0 +1,12 @@
+name: ai-setup-landing
+region: blr
+static_sites:
+  - name: web
+    github:
+      repo: binaryninja437/firstweb
+      branch: main
+      deploy_on_push: true
+    source_dir: /
+    output_dir: /
+    index_document: index.html
+    error_document: index.html
