@@ -1,5 +1,5 @@
 /* ========================================
-   AI Setup Co. — CRO-Optimized Design
+   TaskMeridian — CRO-Optimized Design
    Font: Montserrat
    ======================================== */
 
@@ -461,11 +461,118 @@ body {
 }
 
 /* ========================================
+   HOW IT WORKS - DETAILED SECTION
+   ======================================== */
+.how-it-works-detailed {
+    padding: var(--section-padding) 0;
+    background: var(--color-bg-warm);
+}
+
+.section-lead {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-top: 12px;
+}
+
+.journey-steps {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.journey-step {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+.journey-step:last-child {
+    margin-bottom: 0;
+}
+
+.step-visual-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.step-icon-circle {
+    width: 64px;
+    height: 64px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-icon-circle svg {
+    stroke: currentColor;
+}
+
+.step-connector {
+    width: 2px;
+    flex: 1;
+    background: var(--color-border);
+    margin-top: 16px;
+    min-height: 60px;
+}
+
+.journey-step:last-child .step-connector {
+    display: none;
+}
+
+.step-content-wrapper {
+    flex: 1;
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+}
+
+.step-badge {
+    display: inline-block;
+    background: rgba(45, 90, 74, 0.1);
+    color: var(--color-accent);
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.step-content-wrapper h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.step-details {
+    list-style: none;
+}
+
+.step-details li {
+    padding: 8px 0;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.step-details .check {
+    color: var(--color-success);
+    font-weight: 700;
+}
+
+/* ========================================
    SERVICES SECTION
    ======================================== */
 .services-section {
     padding: var(--section-padding) 0;
-    background: var(--color-bg-warm);
+    background: var(--color-bg);
 }
 
 .section-header {
@@ -591,11 +698,349 @@ body {
 }
 
 /* ========================================
+   SAMPLE WORKFLOWS SECTION
+   ======================================== */
+.workflows-section {
+    padding: var(--section-padding) 0;
+    background: var(--color-bg-warm);
+}
+
+.workflows-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.workflow-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.workflow-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+}
+
+.workflow-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.workflow-icon {
+    font-size: 2.5rem;
+}
+
+.workflow-header h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.workflow-comparison {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: var(--color-bg-alt);
+    border-radius: 12px;
+}
+
+.before, .after {
+    flex: 1;
+}
+
+.before .label, .after .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.before .label {
+    color: #ef4444;
+}
+
+.after .label {
+    color: var(--color-success);
+}
+
+.before p, .after p {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.workflow-tools {
+    margin-bottom: 20px;
+}
+
+.workflow-expand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.workflow-expand:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.workflow-expand svg {
+    transition: transform 0.3s;
+}
+
+.workflow-card.expanded .workflow-expand svg {
+    transform: rotate(180deg);
+}
+
+.workflow-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.workflow-card.expanded .workflow-details {
+    max-height: 400px;
+    padding-top: 20px;
+}
+
+.workflow-details h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--color-text);
+}
+
+.workflow-details ol {
+    margin-left: 20px;
+    margin-bottom: 16px;
+}
+
+.workflow-details li {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    padding: 6px 0;
+    line-height: 1.5;
+}
+
+.workflow-result {
+    background: rgba(5, 150, 105, 0.08);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--color-text);
+}
+
+.workflow-result strong {
+    color: var(--color-success);
+}
+
+/* ========================================
+   TIME SAVINGS CALCULATOR
+   ======================================== */
+.calculator-section {
+    padding: var(--section-padding) 0;
+    background: var(--color-bg);
+}
+
+.calculator-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.calculator-inputs {
+    background: var(--color-bg-alt);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+
+.calc-field {
+    margin-bottom: 28px;
+}
+
+.calc-field:last-child {
+    margin-bottom: 0;
+}
+
+.calc-field label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 12px;
+}
+
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.slider-wrapper input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 8px;
+    background: var(--color-border);
+    border-radius: 4px;
+    outline: none;
+}
+
+.slider-wrapper input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.slider-wrapper input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.slider-value {
+    min-width: 80px;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.rate-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.rate-input-wrapper input[type="number"] {
+    width: 150px;
+    padding: 12px 16px;
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.rate-input-wrapper input[type="number"]:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.rate-hint {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.calculator-results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.result-card-calc {
+    background: white;
+    padding: 32px 40px;
+    border-radius: 16px;
+    text-align: center;
+    min-width: 240px;
+    border: 2px solid var(--color-border);
+}
+
+.result-card-calc.loss {
+    border-color: #ef4444;
+}
+
+.result-card-calc.savings {
+    border-color: var(--color-success);
+}
+
+.result-card-calc h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.result-card-calc.loss h4 {
+    color: #ef4444;
+}
+
+.result-card-calc.savings h4 {
+    color: var(--color-success);
+}
+
+.result-number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+
+.result-money {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.result-card-calc.loss .result-money {
+    color: #ef4444;
+}
+
+.result-card-calc.savings .result-money {
+    color: var(--color-success);
+}
+
+.result-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.result-arrow {
+    font-size: 2rem;
+    color: var(--color-primary);
+}
+
+.calculator-cta {
+    text-align: center;
+}
+
+/* ========================================
    TECH STACK SECTION
    ======================================== */
 .tech-stack-section {
     padding: var(--section-padding) 0;
-    background: var(--color-bg);
+    background: var(--color-bg-warm);
 }
 
 .tech-lead {
@@ -613,7 +1058,7 @@ body {
 }
 
 .tech-category {
-    background: var(--color-bg-alt);
+    background: white;
     padding: 32px;
     border-radius: 16px;
     border: 1px solid var(--color-border);
@@ -640,7 +1085,7 @@ body {
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
-    background: white;
+    background: var(--color-bg-alt);
     border-radius: 10px;
     border: 1px solid var(--color-border);
     transition: all 0.2s;
@@ -1040,6 +1485,73 @@ body {
 }
 
 /* ========================================
+   TRUST INDICATORS SECTION
+   ======================================== */
+.trust-indicators-section {
+    padding: 60px 0;
+    background: var(--color-text);
+    color: white;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.trust-item-large {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.trust-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.trust-content h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.trust-content p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.trust-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 32px;
+}
+
+.trust-process {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.process-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.process-icon {
+    font-size: 1.25rem;
+}
+
+/* ========================================
    FAQ SECTION
    ======================================== */
 .faq-section {
@@ -1051,7 +1563,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -1107,6 +1619,72 @@ body {
 
 .faq-item.active .faq-answer {
     max-height: 300px;
+}
+
+/* ========================================
+   FOUNDER SECTION
+   ======================================== */
+.founder-section {
+    padding: var(--section-padding) 0;
+    background: var(--color-bg-warm);
+}
+
+.founder-wrapper {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.founder-image {
+    flex-shrink: 0;
+}
+
+.founder-avatar {
+    width: 160px;
+    height: 160px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.founder-avatar svg {
+    stroke: currentColor;
+}
+
+.founder-content {
+    flex: 1;
+}
+
+.founder-content h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.founder-content p {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.founder-cta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.founder-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
 }
 
 /* ========================================
@@ -1273,7 +1851,8 @@ body {
    ======================================== */
 @media (max-width: 1024px) {
     .services-grid,
-    .pricing-grid {
+    .pricing-grid,
+    .workflows-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -1282,6 +1861,10 @@ body {
     }
     
     .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .trust-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -1296,6 +1879,16 @@ body {
     
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+    }
+    
+    .founder-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .founder-cta {
+        justify-content: center;
     }
 }
 
@@ -1321,7 +1914,9 @@ body {
     .services-grid,
     .pricing-grid,
     .results-grid,
-    .tech-grid {
+    .tech-grid,
+    .workflows-grid,
+    .trust-grid {
         grid-template-columns: 1fr;
     }
     
@@ -1345,6 +1940,58 @@ body {
     
     .tech-category {
         padding: 24px;
+    }
+    
+    .journey-step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .step-visual-wrapper {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .step-connector {
+        display: none;
+    }
+    
+    .step-content-wrapper {
+        width: 100%;
+    }
+    
+    .step-details li {
+        justify-content: center;
+    }
+    
+    .workflow-comparison {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .arrow {
+        transform: rotate(90deg);
+    }
+    
+    .calculator-results {
+        flex-direction: column;
+    }
+    
+    .result-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .trust-process {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    
+    .trust-item-large {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
