@@ -1,12 +1,32 @@
-// TaskMeridian - CRO Optimized JavaScript
+// TaskMeridian - CRO Optimized JavaScript with Analytics
 document.addEventListener('DOMContentLoaded', () => {
-    // FAQ Accordion
+    // Initialize all components
+    initFAQ();
+    initWorkflows();
+    initCalculator();
+    initSmoothScroll();
+    initLeadMagnetForm();
+    initAnalytics();
+    initScrollTracking();
+    
+    // Optional: Urgency banner
+    // showUrgencyBanner();
+});
+
+// ========================================
+// FAQ Accordion
+// ========================================
+function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
     
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         
         question.addEventListener('click', () => {
+            // Track FAQ open event
+            const questionText = question.querySelector('span').textContent;
+            trackEvent('faq_open', { question: questionText });
+            
             // Close others
             faqItems.forEach(other => {
                 if (other !== item) {
@@ -18,55 +38,39 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.toggle('active');
         });
     });
-    
-    // Workflow Expand/Collapse
+}
+
+// ========================================
+// Workflow Expand/Collapse
+// ========================================
+function initWorkflows() {
     const workflowCards = document.querySelectorAll('.workflow-card');
     
     workflowCards.forEach(card => {
         const expandBtn = card.querySelector('.workflow-expand');
         
         expandBtn.addEventListener('click', () => {
+            const workflowType = card.dataset.workflow;
+            const isExpanding = !card.classList.contains('expanded');
+            
+            // Track workflow expand
+            trackEvent(isExpanding ? 'workflow_expand' : 'workflow_collapse', { 
+                workflow: workflowType 
+            });
+            
             // Toggle current card
             card.classList.toggle('expanded');
             
             // Update button text
             const btnText = expandBtn.querySelector('span');
-            if (card.classList.contains('expanded')) {
-                btnText.textContent = 'Hide details';
-            } else {
-                btnText.textContent = 'See how it works';
-            }
+            btnText.textContent = isExpanding ? 'Hide details' : 'See how it works';
         });
     });
-    
-    // Time Savings Calculator
-    initCalculator();
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#') return;
-            
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                const navHeight = document.querySelector('.nav').offsetHeight;
-                const targetPosition = target.offsetTop - navHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+}
 
-    // Add urgency timer (optional - can be enabled)
-    // showUrgencyBanner();
-});
-
+// ========================================
 // Time Savings Calculator
+// ========================================
 function initCalculator() {
     const emailSlider = document.getElementById('email-hours');
     const schedulingSlider = document.getElementById('scheduling-hours');
@@ -84,6 +88,8 @@ function initCalculator() {
     const weeklySavedEl = document.getElementById('weekly-saved');
     const annualSavedEl = document.getElementById('annual-saved');
     
+    let hasTrackedCalculatorUse = false;
+    
     function formatCurrency(amount) {
         if (amount >= 100000) {
             return '₹' + (amount / 100000).toFixed(2) + 'L';
@@ -99,13 +105,24 @@ function initCalculator() {
         const researchHours = parseFloat(researchSlider.value) || 0;
         const hourlyRate = parseFloat(hourlyRateInput.value) || 2000;
         
+        // Track first calculator interaction
+        if (!hasTrackedCalculatorUse) {
+            trackEvent('calculator_interaction', {
+                email_hours: emailHours,
+                scheduling_hours: schedulingHours,
+                research_hours: researchHours,
+                hourly_rate: hourlyRate
+            });
+            hasTrackedCalculatorUse = true;
+        }
+        
         // Update slider labels
         emailValue.textContent = emailHours + (emailHours === 1 ? ' hour' : ' hours');
         schedulingValue.textContent = schedulingHours + (schedulingHours === 1 ? ' hour' : ' hours');
         researchValue.textContent = researchHours + (researchHours === 1 ? ' hour' : ' hours');
         
         // Calculate weekly hours
-        const weeklyEmailHours = emailHours * 5; // 5 days a week
+        const weeklyEmailHours = emailHours * 5;
         const totalWeeklyHours = weeklyEmailHours + schedulingHours + researchHours;
         
         // Calculate savings (80% automation efficiency)
@@ -134,27 +151,169 @@ function initCalculator() {
     calculate();
 }
 
-// Optional: Urgency banner functionality
-function showUrgencyBanner() {
-    const banner = document.querySelector('.trust-banner-top p');
-    if (!banner) return;
-    
-    const spots = 47;
-    const updateBanner = () => {
-        const remaining = Math.max(1, spots - Math.floor(Math.random() * 3));
-        banner.innerHTML = `🚀 <strong>${remaining} spots remaining</strong> this month. Book your free call before they're gone.`;
-    };
-    
-    // Update every 30 seconds
-    setInterval(updateBanner, 30000);
+// ========================================
+// Smooth Scroll
+// ========================================
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const navHeight = document.querySelector('.nav').offsetHeight;
+                const targetPosition = target.offsetTop - navHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Track scroll to section
+                trackEvent('scroll_to_section', { section: href });
+            }
+        });
+    });
 }
 
+// ========================================
+// Lead Magnet Form
+// ========================================
+function initLeadMagnetForm() {
+    const form = document.querySelector('.lead-magnet-form');
+    if (!form) return;
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Track lead magnet submission
+        trackEvent('lead_magnet_submit', {
+            source: 'starter_kit'
+        });
+        
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending...';
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            
+            if (response.ok) {
+                form.innerHTML = `
+                    <div style="text-align: center; padding: 40px 20px;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
+                        <h3 style="margin-bottom: 12px; color: var(--color-success);">Check Your Email!</h3>
+                        <p style="color: var(--color-text-secondary);">Your AI Automation Starter Kit is on its way.</p>
+                    </div>
+                `;
+                
+                trackEvent('lead_magnet_success');
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+            
+            trackEvent('lead_magnet_error', { error: error.message });
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.style.cssText = 'padding: 12px; margin-top: 16px; border-radius: 8px; background: rgba(239, 68, 68, 0.1); color: #ef4444; font-size: 0.9rem;';
+            errorDiv.innerHTML = '❌ Something went wrong. Please try again.';
+            
+            const existingError = form.querySelector('.form-error');
+            if (existingError) existingError.remove();
+            form.appendChild(errorDiv);
+        }
+    });
+}
+
+// ========================================
+// Analytics Tracking
+// ========================================
+function initAnalytics() {
+    // Track all CTA clicks
+    document.querySelectorAll('[data-cta]').forEach(cta => {
+        cta.addEventListener('click', () => {
+            const ctaName = cta.getAttribute('data-cta');
+            trackEvent('cta_click', { cta: ctaName });
+        });
+    });
+    
+    // Track pricing card views (intersection observer)
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    trackEvent('pricing_viewed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(pricingSection);
+    }
+    
+    // Track time on page
+    let timeOnPage = 0;
+    setInterval(() => {
+        timeOnPage += 10;
+        if (timeOnPage === 30 || timeOnPage === 60 || timeOnPage === 180) {
+            trackEvent('time_on_page', { seconds: timeOnPage });
+        }
+    }, 10000);
+}
+
+// ========================================
+// Scroll Depth Tracking
+// ========================================
+function initScrollTracking() {
+    const scrollDepths = [25, 50, 75, 90];
+    const trackedDepths = new Set();
+    
+    window.addEventListener('scroll', () => {
+        const scrollPercent = Math.round(
+            (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+        );
+        
+        scrollDepths.forEach(depth => {
+            if (scrollPercent >= depth && !trackedDepths.has(depth)) {
+                trackedDepths.add(depth);
+                trackEvent('scroll_depth', { depth: depth });
+            }
+        });
+    });
+}
+
+// ========================================
+// Track Event Helper
+// ========================================
+function trackEvent(eventName, params = {}) {
+    // Google Analytics 4
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, params);
+    }
+    
+    // Console log for debugging
+    console.log('[Analytics]', eventName, params);
+}
+
+// ========================================
 // Booking Form Handler
+// ========================================
 function initBookingForm() {
     const form = document.querySelector('.booking-form');
     if (!form) return;
     
-    // Real-time validation feedback
     const inputs = form.querySelectorAll('input, textarea');
     inputs.forEach(input => {
         input.addEventListener('blur', () => {
@@ -173,16 +332,16 @@ function initBookingForm() {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Validate all fields
         if (!form.checkValidity()) {
             form.reportValidity();
             return;
         }
         
+        trackEvent('booking_form_submit');
+        
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
-        // Show loading state with spinner
         submitBtn.disabled = true;
         submitBtn.classList.add('btn-loading');
         
@@ -190,13 +349,12 @@ function initBookingForm() {
             const response = await fetch(form.action, {
                 method: 'POST',
                 body: new FormData(form),
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             });
             
             if (response.ok) {
-                // Success - show thank you message
+                trackEvent('booking_form_success');
+                
                 form.innerHTML = `
                     <div class="form-success" style="padding: 24px; border-radius: 12px; background: rgba(5, 150, 105, 0.1); color: #059669;">
                         <div style="font-size: 48px; margin-bottom: 16px;">✓</div>
@@ -206,18 +364,17 @@ function initBookingForm() {
                     </div>
                 `;
                 
-                // Scroll to success message
                 form.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else {
                 throw new Error('Form submission failed');
             }
         } catch (error) {
-            // Error - restore button
+            trackEvent('booking_form_error', { error: error.message });
+            
             submitBtn.disabled = false;
             submitBtn.classList.remove('btn-loading');
             submitBtn.innerHTML = originalText;
             
-            // Show error message in form
             const errorDiv = document.createElement('div');
             errorDiv.className = 'form-error';
             errorDiv.style.cssText = 'padding: 12px; margin-top: 16px; border-radius: 8px; background: rgba(239, 68, 68, 0.1); color: #ef4444; font-size: 0.9rem;';
@@ -233,7 +390,9 @@ function initBookingForm() {
 // Initialize booking form
 document.addEventListener('DOMContentLoaded', initBookingForm);
 
+// ========================================
 // Legal Tabs Functionality
+// ========================================
 function initLegalTabs() {
     const tabs = document.querySelectorAll('.legal-tab');
     const contents = document.querySelectorAll('.legal-content');
@@ -242,13 +401,13 @@ function initLegalTabs() {
         tab.addEventListener('click', () => {
             const targetId = tab.dataset.tab;
             
-            // Remove active from all
             tabs.forEach(t => t.classList.remove('active'));
             contents.forEach(c => c.classList.remove('active'));
             
-            // Add active to clicked
             tab.classList.add('active');
             document.getElementById(targetId).classList.add('active');
+            
+            trackEvent('legal_tab_click', { tab: targetId });
         });
     });
 }
@@ -264,3 +423,19 @@ function showLegalTab(tabName) {
 
 // Initialize legal tabs
 document.addEventListener('DOMContentLoaded', initLegalTabs);
+
+// ========================================
+// Urgency Banner (Optional)
+// ========================================
+function showUrgencyBanner() {
+    const banner = document.querySelector('.trust-banner-top p');
+    if (!banner) return;
+    
+    const spots = 47;
+    const updateBanner = () => {
+        const remaining = Math.max(1, spots - Math.floor(Math.random() * 3));
+        banner.innerHTML = `🚀 <strong>${remaining} spots remaining</strong> this month. Book your free call before they're gone.`;
+    };
+    
+    setInterval(updateBanner, 30000);
+}

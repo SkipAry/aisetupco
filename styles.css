@@ -2311,3 +2311,379 @@ body {
 .consent-label a:hover {
     text-decoration: underline;
 }
+
+/* ========================================
+   CTA SUBTEXT
+   ======================================== */
+.cta-subtext {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-top: 12px;
+}
+
+/* ========================================
+   HOW IT WORKS CTA
+   ======================================== */
+.how-it-works-cta {
+    text-align: center;
+    margin-top: 48px;
+}
+
+/* ========================================
+   USE CASES SECTION
+   ======================================== */
+.use-cases-section {
+    padding: var(--section-padding) 0;
+    background: var(--color-bg-warm);
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.use-case-card {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.use-case-card:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+}
+
+.use-case-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.use-case-card h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+}
+
+.use-case-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--color-text);
+}
+
+.use-case-card > p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.use-case-result {
+    padding: 12px 16px;
+    background: rgba(5, 150, 105, 0.08);
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.result-label {
+    font-weight: 600;
+    color: var(--color-success);
+}
+
+.result-value {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+/* ========================================
+   COMPARISON TABLE SECTION
+   ======================================== */
+.comparison-section {
+    padding: var(--section-padding) 0;
+    background: var(--color-bg);
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 40px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 20px 24px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.comparison-table th {
+    background: var(--color-bg-alt);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.comparison-table td {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.comparison-table .feature-name {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.comparison-table .option-taskmeridian {
+    background: rgba(5, 150, 105, 0.03);
+}
+
+.comparison-table .option-taskmeridian.highlight {
+    color: var(--color-success);
+    font-weight: 600;
+}
+
+.comparison-cta {
+    text-align: center;
+}
+
+/* ========================================
+   SOCIAL PROOF METRICS
+   ======================================== */
+.social-proof-metrics {
+    padding: 60px 0;
+    background: var(--color-primary);
+    color: white;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+}
+
+.metric-item {
+    padding: 20px;
+}
+
+.metric-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.metric-label {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* ========================================
+   FAQ CTA
+   ======================================== */
+.faq-cta {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid var(--color-border);
+}
+
+.faq-cta-text {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 16px;
+}
+
+/* ========================================
+   LEAD MAGNET SECTION
+   ======================================== */
+.lead-magnet-section {
+    padding: var(--section-padding) 0;
+    background: linear-gradient(135deg, var(--color-bg-warm) 0%, var(--color-bg-alt) 100%);
+}
+
+.lead-magnet-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.lead-magnet-content h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.lead-magnet-content > p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+}
+
+.lead-magnet-benefits {
+    list-style: none;
+    margin-bottom: 24px;
+}
+
+.lead-magnet-benefits li {
+    padding: 12px 0;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.lead-magnet-benefits li:last-child {
+    border-bottom: none;
+}
+
+.lead-magnet-benefits .check {
+    color: var(--color-success);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.privacy-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.lead-magnet-form-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.lead-magnet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.lead-magnet-form .form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.lead-magnet-form .form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* ========================================
+   WHATSAPP FLOAT BUTTON
+   ======================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+}
+
+/* ========================================
+   CLICK TO CALL (MOBILE)
+   ======================================== */
+.click-to-call {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--color-primary);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 20px rgba(217, 119, 87, 0.4);
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+
+.click-to-call:hover {
+    transform: scale(1.05);
+}
+
+/* Hide click-to-call on desktop */
+@media (min-width: 769px) {
+    .click-to-call {
+        display: none;
+    }
+}
+
+/* Adjust WhatsApp position on mobile when click-to-call is visible */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 90px;
+    }
+    
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .lead-magnet-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 16px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .metric-number {
+        font-size: 2rem;
+    }
+}
