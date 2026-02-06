@@ -141,3 +141,35 @@ function initBookingForm() {
 
 // Initialize booking form
 document.addEventListener('DOMContentLoaded', initBookingForm);
+
+// Legal Tabs Functionality
+function initLegalTabs() {
+    const tabs = document.querySelectorAll('.legal-tab');
+    const contents = document.querySelectorAll('.legal-content');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.dataset.tab;
+            
+            // Remove active from all
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+            
+            // Add active to clicked
+            tab.classList.add('active');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+}
+
+// Global function for footer links
+function showLegalTab(tabName) {
+    const tab = document.querySelector(`.legal-tab[data-tab="${tabName}"]`);
+    if (tab) {
+        tab.click();
+        document.getElementById('legal').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Initialize legal tabs
+document.addEventListener('DOMContentLoaded', initLegalTabs);
