@@ -57,3 +57,49 @@ function showUrgencyBanner() {
     // Update every 30 seconds
     setInterval(updateBanner, 30000);
 }
+
+// Booking Form Handler
+function initBookingForm() {
+    const form = document.querySelector('.booking-form');
+    if (!form) return;
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Sending...</span>';
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Success - show thank you message
+                form.innerHTML = `
+                    <div class="form-success">
+                        ✅ Thank you! We've received your request and will contact you within 24 hours.
+                    </div>
+                `;
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Error - restore button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+            alert('Something went wrong. Please try again or email us directly.');
+        }
+    });
+}
+
+// Initialize booking form
+document.addEventListener('DOMContentLoaded', initBookingForm);

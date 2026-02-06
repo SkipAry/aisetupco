@@ -1143,3 +1143,61 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* ========================================
+   BOOKING FORM
+   ======================================== */
+.booking-form {
+    max-width: 450px;
+    margin: 0 auto 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--color-text);
+    background: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(217, 119, 87, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.booking-form .btn-primary {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+/* Form success message */
+.form-success {
+    background: rgba(5, 150, 105, 0.1);
+    color: var(--color-success);
+    padding: 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-top: 16px;
+}
