@@ -19,7 +19,7 @@
         }
         
         .booking-container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
         }
         
@@ -41,21 +41,29 @@
             margin: 0 auto;
         }
         
-        .booking-types {
+        .booking-form-wrapper {
+            background: white;
+            padding: 48px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        
+        .booking-type-selector {
             display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 40px;
+            gap: 12px;
+            margin-bottom: 32px;
             flex-wrap: wrap;
         }
         
         .booking-type-btn {
-            padding: 16px 24px;
-            background: white;
+            flex: 1;
+            min-width: 150px;
+            padding: 16px 20px;
+            background: var(--color-bg-alt);
             border: 2px solid var(--color-border);
             border-radius: 12px;
             font-family: var(--font-primary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--color-text);
             cursor: pointer;
@@ -81,87 +89,61 @@
             margin-top: 4px;
         }
         
-        .booking-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        }
-        
-        .booking-info {
-            padding: 48px;
-            background: var(--color-bg-alt);
-        }
-        
-        .booking-info h2 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .what-to-expect {
-            list-style: none;
+        .form-section {
             margin-bottom: 32px;
-        }
-        
-        .what-to-expect li {
-            padding: 12px 0;
-            font-size: 0.95rem;
-            color: var(--color-text-secondary);
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
+            padding-bottom: 32px;
             border-bottom: 1px solid var(--color-border);
         }
         
-        .what-to-expect li:last-child {
+        .form-section:last-of-type {
             border-bottom: none;
         }
         
-        .what-to-expect .check {
-            color: var(--color-success);
-            font-weight: 700;
-        }
-        
-        .booking-form-section h3 {
+        .form-section h3 {
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 20px;
+            color: var(--color-text);
         }
         
-        .booking-form .form-group {
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .form-group {
             margin-bottom: 20px;
         }
         
-        .booking-form label {
+        .form-group label {
             display: block;
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 8px;
         }
         
-        .booking-form input,
-        .booking-form textarea,
-        .booking-form select {
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 12px 16px;
+            padding: 14px 16px;
             border: 2px solid var(--color-border);
             border-radius: 10px;
             font-family: var(--font-primary);
             font-size: 1rem;
+            transition: border-color 0.2s;
         }
         
-        .booking-form input:focus,
-        .booking-form textarea:focus {
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--color-primary);
         }
         
-        .booking-form textarea {
-            min-height: 100px;
+        .form-group textarea {
+            min-height: 120px;
             resize: vertical;
         }
         
@@ -174,25 +156,149 @@
         .checkbox-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            padding: 12px;
+            background: var(--color-bg-alt);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .checkbox-item:hover {
+            background: var(--color-bg-warm);
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--color-primary);
+        }
+        
+        .checkbox-item span {
             font-size: 0.9rem;
         }
         
-        .calendly-embed {
-            padding: 48px;
+        .datetime-picker {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
         
-        .calendly-container {
-            min-height: 600px;
+        .what-to-expect {
+            background: var(--color-bg-alt);
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 32px;
         }
         
-        @media (max-width: 1024px) {
-            .booking-wrapper {
+        .what-to-expect h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .what-to-expect ul {
+            list-style: none;
+        }
+        
+        .what-to-expect li {
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .what-to-expect li:last-child {
+            border-bottom: none;
+        }
+        
+        .what-to-expect .check {
+            color: var(--color-success);
+            font-weight: 700;
+        }
+        
+        .submit-section {
+            text-align: center;
+            padding-top: 20px;
+        }
+        
+        .submit-btn {
+            padding: 18px 48px;
+            font-size: 1.1rem;
+        }
+        
+        .privacy-note {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin-top: 16px;
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 60px 40px;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 24px;
+        }
+        
+        .success-message h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .success-message p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .next-steps {
+            background: var(--color-bg-alt);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+        
+        .next-steps h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .next-steps ol {
+            margin-left: 20px;
+        }
+        
+        .next-steps li {
+            padding: 8px 0;
+            color: var(--color-text-secondary);
+        }
+        
+        @media (max-width: 640px) {
+            .booking-form-wrapper {
+                padding: 32px 24px;
+            }
+            
+            .form-row,
+            .datetime-picker {
                 grid-template-columns: 1fr;
             }
             
-            .calendly-embed {
-                padding: 24px;
+            .tools-checkboxes {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -203,73 +309,77 @@
             <div class="booking-header">
                 <span class="section-badge">Book Your Call</span>
                 <h1>Let's Discuss Your Automation</h1>
-                <p>Choose a time that works for you. We'll analyze your workflow and show you exactly what's possible.</p>
+                <p>Fill out the form below and we'll schedule your free discovery call. We'll analyze your workflow and show you exactly what's possible.</p>
             </div>
 
-            <div class="booking-types">
-                <button class="booking-type-btn active" data-type="discovery">
-                    Discovery Call
-                    <span class="duration">30 minutes • Free</span>
-                </button>
-                <button class="booking-type-btn" data-type="technical">
-                    Technical Consultation
-                    <span class="duration">45 minutes • Free</span>
-                </button>
-                <button class="booking-type-btn" data-type="followup">
-                    Follow-up Session
-                    <span class="duration">15 minutes • Free</span>
-                </button>
-            </div>
-
-            <div class="booking-wrapper">
-                <div class="booking-info">
-                    <h2>What to Expect</h2>
-                    <ul class="what-to-expect">
-                        <li>
-                            <span class="check">✓</span>
-                            <span>We'll analyze your current workflow and identify time-wasters</span>
-                        </li>
-                        <li>
-                            <span class="check">✓</span>
-                            <span>You'll see exactly what AI automation can do for your specific situation</span>
-                        </li>
-                        <li>
-                            <span class="check">✓</span>
-                            <span>We'll create a custom blueprint tailored to your needs</span>
-                        </li>
-                        <li>
-                            <span class="check">✓</span>
-                            <span>No obligation, no pressure—just valuable insights</span>
-                        </li>
-                        <li>
-                            <span class="check">✓</span>
-                            <span>You'll get a clear ROI calculation and timeline</span>
-                        </li>
-                    </ul>
-
-                    <div class="booking-form-section">
-                        <h3>Tell Us About Your Work</h3>
-                        <form class="booking-form" id="pre-booking-form">
-                            <div class="form-group">
-                                <label for="name">Your Name *</label>
-                                <input type="text" id="name" name="name" required placeholder="e.g., Rahul Sharma">
+            <div class="booking-form-wrapper">
+                <!-- Form Container -->
+                <div id="form-container">
+                    <form id="booking-form" action="https://formspree.io/f/mreazvgz" method="POST">
+                        <input type="hidden" name="form_type" value="booking_request">
+                        
+                        <!-- Call Type Selection -->
+                        <div class="form-section">
+                            <h3>Select Call Type</h3>
+                            <div class="booking-type-selector">
+                                <button type="button" class="booking-type-btn active" data-type="discovery" onclick="selectCallType('discovery')">
+                                    Discovery Call
+                                    <span class="duration">30 min • Free</span>
+                                </button>
+                                <button type="button" class="booking-type-btn" data-type="technical" onclick="selectCallType('technical')">
+                                    Technical Consultation
+                                    <span class="duration">45 min • Free</span>
+                                </button>
+                                <button type="button" class="booking-type-btn" data-type="followup" onclick="selectCallType('followup')">
+                                    Follow-up Session
+                                    <span class="duration">15 min • Free</span>
+                                </button>
                             </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required placeholder="you@company.com">
+                            <input type="hidden" name="call_type" id="call-type-input" value="discovery">
+                        </div>
+
+                        <!-- What to Expect -->
+                        <div class="what-to-expect">
+                            <h3>What to Expect</h3>
+                            <ul>
+                                <li><span class="check">✓</span> <span>We'll analyze your current workflow and identify time-wasters</span></li>
+                                <li><span class="check">✓</span> <span>You'll see exactly what AI automation can do for your specific situation</span></li>
+                                <li><span class="check">✓</span> <span>We'll create a custom blueprint tailored to your needs</span></li>
+                                <li><span class="check">✓</span> <span>No obligation, no pressure—just valuable insights</span></li>
+                                <li><span class="check">✓</span> <span>You'll get a clear ROI calculation and timeline</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Personal Info -->
+                        <div class="form-section">
+                            <h3>Your Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" required placeholder="e.g., Rahul Sharma">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required placeholder="you@company.com">
+                                </div>
                             </div>
-                            
                             <div class="form-group">
                                 <label for="whatsapp">WhatsApp Number *</label>
                                 <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+91 98765 43210">
                             </div>
-                            
+                            <div class="form-group">
+                                <label for="company">Company/Organization (Optional)</label>
+                                <input type="text" id="company" name="company" placeholder="Your company name">
+                            </div>
+                        </div>
+
+                        <!-- Automation Needs -->
+                        <div class="form-section">
+                            <h3>Tell Us About Your Work</h3>
                             <div class="form-group">
                                 <label for="automation-needs">What do you want to automate? *</label>
-                                <textarea id="automation-needs" name="automation_needs" required placeholder="e.g., I spend 3 hours daily on email and want to automate the sorting and responses."></textarea>
+                                <textarea id="automation-needs" name="automation_needs" required placeholder="e.g., I spend 3 hours daily on email and want to automate the sorting and responses. I also need help with scheduling meetings."></textarea>
                             </div>
-                            
                             <div class="form-group">
                                 <label>Current tools you use (select all):</label>
                                 <div class="tools-checkboxes">
@@ -298,74 +408,124 @@
                                         <span>Google Sheets</span>
                                     </label>
                                     <label class="checkbox-item">
+                                        <input type="checkbox" name="tools" value="zoom">
+                                        <span>Zoom</span>
+                                    </label>
+                                    <label class="checkbox-item">
                                         <input type="checkbox" name="tools" value="other">
                                         <span>Other</span>
                                     </label>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+
+                        <!-- Preferred Time -->
+                        <div class="form-section">
+                            <h3>Preferred Date & Time</h3>
+                            <div class="datetime-picker">
+                                <div class="form-group">
+                                    <label for="preferred-date">Preferred Date *</label>
+                                    <input type="date" id="preferred-date" name="preferred_date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preferred-time">Preferred Time *</label>
+                                    <select id="preferred-time" name="preferred_time" required>
+                                        <option value="">Select time</option>
+                                        <option value="9:00 AM">9:00 AM</option>
+                                        <option value="10:00 AM">10:00 AM</option>
+                                        <option value="11:00 AM">11:00 AM</option>
+                                        <option value="12:00 PM">12:00 PM</option>
+                                        <option value="2:00 PM">2:00 PM</option>
+                                        <option value="3:00 PM">3:00 PM</option>
+                                        <option value="4:00 PM">4:00 PM</option>
+                                        <option value="5:00 PM">5:00 PM</option>
+                                        <option value="6:00 PM">6:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 12px;">We'll confirm the exact time via WhatsApp within 24 hours.</p>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="submit-section">
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span>Book My Free Call</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-left: 8px;">
+                                    <path d="M4 10h12m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <p class="privacy-note">🔒 Your information is secure. We'll never share your data.</p>
+                        </div>
+                    </form>
                 </div>
 
-                <div class="calendly-embed">
-                    <!-- Calendly inline widget begin -->
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR_CALENDLY_LINK/discovery-call" style="min-width:320px;height:700px;"></div>
-                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                    <!-- Calendly inline widget end -->
+                <!-- Success Message -->
+                <div class="success-message" id="success-message">
+                    <div class="success-icon">🎉</div>
+                    <h2>Booking Request Received!</h2>
+                    <p>Thank you for your interest. We've received your booking request and will contact you within 24 hours to confirm your call.</p>
+                    
+                    <div class="next-steps">
+                        <h3>What happens next?</h3>
+                        <ol>
+                            <li>We'll review your requirements</li>
+                            <li>Send you a confirmation via WhatsApp/Email</li>
+                            <li>Share a calendar invite with meeting link</li>
+                            <li>Call you at the scheduled time</li>
+                        </ol>
+                    </div>
+                    
+                    <a href="index.html" class="btn btn-outline">Back to Home</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Booking type selector
-        document.querySelectorAll('.booking-type-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.booking-type-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                const type = btn.dataset.type;
-                
-                // Update Calendly URL based on selection
-                const calendlyWidget = document.querySelector('.calendly-inline-widget');
-                let calendlyUrl = 'https://calendly.com/YOUR_CALENDLY_LINK/';
-                
-                switch(type) {
-                    case 'discovery':
-                        calendlyUrl += 'discovery-call';
-                        break;
-                    case 'technical':
-                        calendlyUrl += 'technical-consultation';
-                        break;
-                    case 'followup':
-                        calendlyUrl += 'follow-up';
-                        break;
-                }
-                
-                calendlyWidget.setAttribute('data-url', calendlyUrl);
-                
-                // Reload Calendly
-                if (window.Calendly) {
-                    window.Calendly.initInlineWidget({
-                        url: calendlyUrl,
-                        parentElement: calendlyWidget
-                    });
-                }
-            });
-        });
+        // Set minimum date to today
+        document.getElementById('preferred-date').min = new Date().toISOString().split('T')[0];
         
-        // Track form interactions
-        document.getElementById('pre-booking-form').addEventListener('submit', (e) => {
+        // Call type selector
+        function selectCallType(type) {
+            document.querySelectorAll('.booking-type-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-type="${type}"]`).classList.add('active');
+            document.getElementById('call-type-input').value = type;
+        }
+        
+        // Form submission
+        document.getElementById('booking-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Store form data
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Submitting...';
+            submitBtn.disabled = true;
             
-            localStorage.setItem('bookingFormData', JSON.stringify(data));
-            
-            // Scroll to calendar
-            document.querySelector('.calendly-embed').scrollIntoView({ behavior: 'smooth' });
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    document.getElementById('form-container').style.display = 'none';
+                    document.getElementById('success-message').classList.add('show');
+                    
+                    // Track conversion
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'booking_form_success');
+                    }
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                alert('Something went wrong. Please try again or WhatsApp us at +91 8421884545');
+            }
         });
     </script>
     
