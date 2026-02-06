@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Experience | TaskMeridian</title>
+    <meta name="description" content="Share your TaskMeridian experience. Help other professionals discover the power of AI automation.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .testimonial-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--color-bg-warm) 0%, var(--color-bg-alt) 100%);
+        }
+        
+        .testimonial-form-wrapper {
+            background: white;
+            padding: 48px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        
+        .testimonial-form-wrapper h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .testimonial-form-wrapper > p {
+            text-align: center;
+            color: var(--color-text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--color-border);
+            border-radius: 10px;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+        }
+        
+        .checkbox-group label {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--color-text-secondary);
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+        }
+        
+        .form-container.hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="testimonial-page">
+        <div class="testimonial-form-wrapper">
+            <div class="form-container" id="form-container">
+                <h1>Share Your Experience</h1>
+                <p>Help other professionals discover the power of AI automation. Your testimonial makes a difference!</p>
+                
+                <form action="https://formspree.io/f/mreazvgz" method="POST" id="testimonial-form">
+                    <input type="hidden" name="form_type" value="testimonial">
+                    
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="e.g., Rahul Sharma">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="industry">Your Industry *</label>
+                        <select id="industry" name="industry" required>
+                            <option value="">Select your industry</option>
+                            <option value="consulting">Consulting</option>
+                            <option value="founder">Founder/Startup</option>
+                            <option value="freelance">Freelance</option>
+                            <option value="agency">Agency</option>
+                            <option value="sales">Sales</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hours_saved">Hours Saved Per Week *</label>
+                        <input type="number" id="hours_saved" name="hours_saved" required placeholder="e.g., 10" min="1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="testimonial">Your Experience *</label>
+                        <textarea id="testimonial" name="testimonial" required placeholder="How has TaskMeridian helped you? What specific results have you seen?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email (for verification) *</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="permission" name="permission" required>
+                            <label for="permission">I give permission to use this testimonial on the TaskMeridian website and marketing materials. *</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="photo_permission" name="photo_permission">
+                            <label for="photo_permission">I can provide a photo for the testimonial (optional).</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">Submit Testimonial</button>
+                </form>
+            </div>
+            
+            <div class="success-message" id="success-message">
+                <div class="success-icon">🎉</div>
+                <h2>Thank You!</h2>
+                <p>Your testimonial has been submitted for review. We appreciate your support!</p>
+                <a href="index.html" class="btn btn-outline" style="margin-top: 24px;">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('testimonial-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    document.getElementById('form-container').classList.add('hide');
+                    document.getElementById('success-message').classList.add('show');
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                submitBtn.textContent = 'Submit Testimonial';
+                submitBtn.disabled = false;
+                alert('Something went wrong. Please try again.');
+            }
+        });
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LPR7XW7PG5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LPR7XW7PG5');
+    </script>
+</body>
+</html>

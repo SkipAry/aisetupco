@@ -8,10 +8,84 @@ document.addEventListener('DOMContentLoaded', () => {
     initLeadMagnetForm();
     initAnalytics();
     initScrollTracking();
+    initNewsletterPopup();
     
     // Optional: Urgency banner
     // showUrgencyBanner();
 });
+
+// ========================================
+// Newsletter Popup
+// ========================================
+function initNewsletterPopup() {
+    const popup = document.getElementById('newsletter-popup');
+    if (!popup) return;
+    
+    // Check if user has already seen popup
+    if (localStorage.getItem('newsletterPopupClosed')) return;
+    
+    // Show popup after 30 seconds or on exit intent
+    let popupShown = false;
+    
+    // Time-based trigger
+    setTimeout(() => {
+        if (!popupShown) {
+            showNewsletterPopup();
+            popupShown = true;
+        }
+    }, 30000);
+    
+    // Exit intent trigger
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 10 && !popupShown) {
+            showNewsletterPopup();
+            popupShown = true;
+        }
+    });
+    
+    // Form submission
+    const form = popup.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', () => {
+            trackEvent('newsletter_popup_subscribe');
+            localStorage.setItem('newsletterPopupClosed', 'true');
+        });
+    }
+}
+
+function showNewsletterPopup() {
+    const popup = document.getElementById('newsletter-popup');
+    if (popup) {
+        popup.classList.add('active');
+        trackEvent('newsletter_popup_show');
+    }
+}
+
+function closeNewsletterPopup() {
+    const popup = document.getElementById('newsletter-popup');
+    if (popup) {
+        popup.classList.remove('active');
+        localStorage.setItem('newsletterPopupClosed', 'true');
+        trackEvent('newsletter_popup_close');
+    }
+}
+
+// Make close function global
+window.closeNewsletterPopup = closeNewsletterPopup;
+
+// ========================================
+// Video Modal
+// ========================================
+function openVideoModal(videoId) {
+    trackEvent('video_click', { video: videoId });
+    
+    // For now, show coming soon message
+    // In production, this would open a modal with the video
+    alert('Video coming soon! Subscribe to our newsletter to get notified when it\'s ready.');
+}
+
+// Make function global
+window.openVideoModal = openVideoModal;
 
 // ========================================
 // FAQ Accordion

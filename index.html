@@ -366,6 +366,62 @@
         </div>
     </section>
 
+    <!-- Video Section - See It In Action -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-badge section-badge-alt">See It In Action</span>
+                <h2>Watch AI Transform Your Workflow</h2>
+                <p class="section-lead">See exactly how we build and deliver your automation system.</p>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card" data-video="demo">
+                    <div class="video-thumbnail" onclick="openVideoModal('demo')">
+                        <div class="thumbnail-bg" style="background: linear-gradient(135deg, #d97757 0%, #c46a4a 100%);">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <span class="video-duration">3:45</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>TaskMeridian Demo</h3>
+                        <p>Watch AI handle 50 emails in under 5 minutes</p>
+                    </div>
+                </div>
+
+                <div class="video-card" data-video="behind-scenes">
+                    <div class="video-thumbnail" onclick="openVideoModal('behind-scenes')">
+                        <div class="thumbnail-bg" style="background: linear-gradient(135deg, #2d5a4a 0%, #1a3d32 100%);">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <span class="video-duration">5:20</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Behind The Scenes</h3>
+                        <p>How we build your custom automations</p>
+                    </div>
+                </div>
+
+                <div class="video-card" data-video="walkthrough">
+                    <div class="video-thumbnail" onclick="openVideoModal('walkthrough')">
+                        <div class="thumbnail-bg" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <span class="video-duration">4:15</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Client Walkthrough</h3>
+                        <p>From setup to launch: The complete journey</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-coming-soon">
+                <p>🎬 Videos coming soon! Subscribe to get notified.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Use Cases Section -->
     <section class="use-cases-section">
         <div class="container">
@@ -533,6 +589,16 @@
                         <span class="tool-tag">n8n</span>
                     </div>
                     <span class="time-saved">⏱️ Tailored to your exact workflow</span>
+                </div>
+            </div>
+
+            <!-- Blog CTA Card -->
+            <div class="blog-cta-card">
+                <div class="blog-cta-content">
+                    <span class="blog-cta-label">📖 Read Next</span>
+                    <h3>Top 5 Tasks to Automate First</h3>
+                    <p>Not sure where to start? Here's our proven framework for identifying your highest-impact automation opportunities.</p>
+                    <a href="blog-post-email-automation.html" class="link-arrow">Read the Guide →</a>
                 </div>
             </div>
         </div>
@@ -1628,6 +1694,27 @@
             </div>
         </div>
     </footer>
+
+    <!-- Newsletter Popup -->
+    <div class="newsletter-popup" id="newsletter-popup">
+        <div class="popup-overlay" onclick="closeNewsletterPopup()"></div>
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeNewsletterPopup()">×</button>
+            <div class="popup-header">
+                <span class="popup-icon">🚀</span>
+                <h3>Get Weekly AI Automation Tips</h3>
+                <p>One actionable tip every Monday. No spam, unsubscribe anytime.</p>
+            </div>
+            <form class="popup-form" action="https://formspree.io/f/mreazvgz" method="POST">
+                <input type="hidden" name="source" value="popup-newsletter">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Subscribe</button>
+            </form>
+            <p class="popup-privacy">🔒 We respect your inbox. No spam, ever.</p>
+        </div>
+    </div>
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/918421884545" class="whatsapp-float" target="_blank" data-cta="whatsapp-float" aria-label="Chat on WhatsApp">
