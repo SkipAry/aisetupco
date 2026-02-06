@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Free Discovery Call | TaskMeridian</title>
+    <meta name="description" content="Book a free 30-minute discovery call. We'll analyze your workflow and show you exactly how AI automation can save you 10+ hours weekly.">
+    <link rel="canonical" href="https://taskmeridian.com/book.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .booking-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--color-bg-warm) 0%, var(--color-bg-alt) 100%);
+            padding: 40px 20px;
+        }
+        
+        .booking-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .booking-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .booking-header h1 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        
+        .booking-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .booking-types {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .booking-type-btn {
+            padding: 16px 24px;
+            background: white;
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            font-family: var(--font-primary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        
+        .booking-type-btn:hover {
+            border-color: var(--color-primary);
+        }
+        
+        .booking-type-btn.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+        }
+        
+        .booking-type-btn .duration {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+        
+        .booking-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        
+        .booking-info {
+            padding: 48px;
+            background: var(--color-bg-alt);
+        }
+        
+        .booking-info h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .what-to-expect {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        
+        .what-to-expect li {
+            padding: 12px 0;
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .what-to-expect li:last-child {
+            border-bottom: none;
+        }
+        
+        .what-to-expect .check {
+            color: var(--color-success);
+            font-weight: 700;
+        }
+        
+        .booking-form-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .booking-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .booking-form label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .booking-form input,
+        .booking-form textarea,
+        .booking-form select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--color-border);
+            border-radius: 10px;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+        }
+        
+        .booking-form input:focus,
+        .booking-form textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        
+        .booking-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .tools-checkboxes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .calendly-embed {
+            padding: 48px;
+        }
+        
+        .calendly-container {
+            min-height: 600px;
+        }
+        
+        @media (max-width: 1024px) {
+            .booking-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendly-embed {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-page">
+        <div class="booking-container">
+            <div class="booking-header">
+                <span class="section-badge">Book Your Call</span>
+                <h1>Let's Discuss Your Automation</h1>
+                <p>Choose a time that works for you. We'll analyze your workflow and show you exactly what's possible.</p>
+            </div>
+
+            <div class="booking-types">
+                <button class="booking-type-btn active" data-type="discovery">
+                    Discovery Call
+                    <span class="duration">30 minutes • Free</span>
+                </button>
+                <button class="booking-type-btn" data-type="technical">
+                    Technical Consultation
+                    <span class="duration">45 minutes • Free</span>
+                </button>
+                <button class="booking-type-btn" data-type="followup">
+                    Follow-up Session
+                    <span class="duration">15 minutes • Free</span>
+                </button>
+            </div>
+
+            <div class="booking-wrapper">
+                <div class="booking-info">
+                    <h2>What to Expect</h2>
+                    <ul class="what-to-expect">
+                        <li>
+                            <span class="check">✓</span>
+                            <span>We'll analyze your current workflow and identify time-wasters</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span>You'll see exactly what AI automation can do for your specific situation</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span>We'll create a custom blueprint tailored to your needs</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span>No obligation, no pressure—just valuable insights</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span>You'll get a clear ROI calculation and timeline</span>
+                        </li>
+                    </ul>
+
+                    <div class="booking-form-section">
+                        <h3>Tell Us About Your Work</h3>
+                        <form class="booking-form" id="pre-booking-form">
+                            <div class="form-group">
+                                <label for="name">Your Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="e.g., Rahul Sharma">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="you@company.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="whatsapp">WhatsApp Number *</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+91 98765 43210">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="automation-needs">What do you want to automate? *</label>
+                                <textarea id="automation-needs" name="automation_needs" required placeholder="e.g., I spend 3 hours daily on email and want to automate the sorting and responses."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Current tools you use (select all):</label>
+                                <div class="tools-checkboxes">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="tools" value="gmail">
+                                        <span>Gmail</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="tools" value="outlook">
+                                        <span>Outlook</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="tools" value="notion">
+                                        <span>Notion</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="tools" value="slack">
+                                        <span>Slack</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="tools" value="calendly">
+                                        <span>Calendly</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="tools" value="sheets">
+                                        <span>Google Sheets</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="tools" value="other">
+                                        <span>Other</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="calendly-embed">
+                    <!-- Calendly inline widget begin -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR_CALENDLY_LINK/discovery-call" style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    <!-- Calendly inline widget end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Booking type selector
+        document.querySelectorAll('.booking-type-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.booking-type-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const type = btn.dataset.type;
+                
+                // Update Calendly URL based on selection
+                const calendlyWidget = document.querySelector('.calendly-inline-widget');
+                let calendlyUrl = 'https://calendly.com/YOUR_CALENDLY_LINK/';
+                
+                switch(type) {
+                    case 'discovery':
+                        calendlyUrl += 'discovery-call';
+                        break;
+                    case 'technical':
+                        calendlyUrl += 'technical-consultation';
+                        break;
+                    case 'followup':
+                        calendlyUrl += 'follow-up';
+                        break;
+                }
+                
+                calendlyWidget.setAttribute('data-url', calendlyUrl);
+                
+                // Reload Calendly
+                if (window.Calendly) {
+                    window.Calendly.initInlineWidget({
+                        url: calendlyUrl,
+                        parentElement: calendlyWidget
+                    });
+                }
+            });
+        });
+        
+        // Track form interactions
+        document.getElementById('pre-booking-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Store form data
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            localStorage.setItem('bookingFormData', JSON.stringify(data));
+            
+            // Scroll to calendar
+            document.querySelector('.calendly-embed').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LPR7XW7PG5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LPR7XW7PG5');
+    </script>
+</body>
+</html>

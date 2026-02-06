@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Onboarding | TaskMeridian</title>
+    <meta name="description" content="Track your automation project progress. Complete checklist and stay updated on your TaskMeridian journey.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .onboarding-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--color-bg-warm) 0%, var(--color-bg-alt) 100%);
+            padding: 40px 20px;
+        }
+        
+        .onboarding-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .onboarding-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .onboarding-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .onboarding-header p {
+            color: var(--color-text-secondary);
+        }
+        
+        .progress-section {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .progress-header h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        
+        .progress-percentage {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: var(--color-bg-alt);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            border-radius: 100px;
+            transition: width 0.5s ease;
+        }
+        
+        .checklist-section {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .checklist-item {
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .checklist-header:hover {
+            background: var(--color-bg-alt);
+        }
+        
+        .checklist-item.completed .checklist-header {
+            background: rgba(5, 150, 105, 0.05);
+        }
+        
+        .checkbox {
+            width: 28px;
+            height: 28px;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        
+        .checklist-item.completed .checkbox {
+            background: var(--color-success);
+            border-color: var(--color-success);
+            color: white;
+        }
+        
+        .checklist-title {
+            flex: 1;
+        }
+        
+        .checklist-title h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .checklist-title .status {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+        
+        .checklist-item.completed .status {
+            color: var(--color-success);
+        }
+        
+        .expand-icon {
+            color: var(--color-text-muted);
+            transition: transform 0.3s;
+        }
+        
+        .checklist-item.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .checklist-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .checklist-item.expanded .checklist-content {
+            max-height: 500px;
+        }
+        
+        .checklist-details {
+            padding: 0 24px 24px 68px;
+        }
+        
+        .detail-section {
+            margin-bottom: 20px;
+        }
+        
+        .detail-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .detail-section h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        
+        .detail-section p, .detail-section ul {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+        
+        .detail-section ul {
+            list-style: none;
+        }
+        
+        .detail-section li {
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .detail-section li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+        }
+        
+        .contact-support {
+            background: var(--color-bg-warm);
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .contact-support p {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        @media (max-width: 640px) {
+            .checklist-details {
+                padding: 0 20px 20px 20px;
+            }
+            
+            .checklist-header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="onboarding-page">
+        <div class="onboarding-container">
+            <div class="onboarding-header">
+                <span class="section-badge">Client Portal</span>
+                <h1>Your Automation Journey</h1>
+                <p>Track progress and stay updated on your project</p>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <h2>Project Progress</h2>
+                    <span class="progress-percentage" id="progress-text">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Checklist -->
+            <div class="checklist-section" id="checklist">
+                <!-- Items will be generated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Onboarding checklist data
+        const checklistItems = [
+            {
+                id: 1,
+                title: 'Discovery Call Completed',
+                status: 'completed',
+                whatToExpect: 'We discussed your workflow, identified pain points, and outlined potential automation opportunities.',
+                yourAction: 'Nothing! We\'ll send you a summary within 24 hours.',
+                timeline: 'Completed on Day 1'
+            },
+            {
+                id: 2,
+                title: 'Tools Access Granted',
+                status: 'in_progress',
+                whatToExpect: 'We need access to the tools you want to automate (Gmail, Notion, etc.). We use secure OAuth connections.',
+                yourAction: 'Check your email for secure access links. Click to authorize.',
+                timeline: 'Within 2 days of discovery call'
+            },
+            {
+                id: 3,
+                title: 'Blueprint Approved',
+                status: 'pending',
+                whatToExpect: 'We\'ll send you a detailed blueprint showing exactly what we\'ll build, including workflow diagrams and timeline.',
+                yourAction: 'Review the blueprint and approve or request changes.',
+                timeline: 'Within 3 days'
+            },
+            {
+                id: 4,
+                title: 'Automation Built',
+                status: 'pending',
+                whatToExpect: 'Our team builds your custom automation system. You don\'t need to do anything during this phase.',
+                yourAction: 'Sit back and relax! We\'ll update you on progress.',
+                timeline: '3-5 days after approval'
+            },
+            {
+                id: 5,
+                title: 'Testing Completed',
+                status: 'pending',
+                whatToExpect: 'We thoroughly test all automations with sample data to ensure everything works perfectly.',
+                yourAction: 'We\'ll share test results and get your sign-off.',
+                timeline: '1 day after build'
+            },
+            {
+                id: 6,
+                title: 'Training Scheduled',
+                status: 'pending',
+                whatToExpect: '1-hour personal walkthrough session where we show you how everything works.',
+                yourAction: 'Pick a time that works for you from the calendar link we\'ll send.',
+                timeline: 'Within 1 week of build completion'
+            },
+            {
+                id: 7,
+                title: 'Handoff Completed',
+                status: 'pending',
+                whatToExpect: 'You\'re all set! We hand over documentation and full control of your automations.',
+                yourAction: 'Start using your new AI-powered workflow!',
+                timeline: 'Day of training'
+            },
+            {
+                id: 8,
+                title: '30-Day Check-in',
+                status: 'pending',
+                whatToExpect: 'We\'ll reach out to see how things are going and answer any questions.',
+                yourAction: 'Share your feedback and any tweaks you\'d like.',
+                timeline: '30 days after handoff'
+            }
+        ];
+
+        // Render checklist
+        function renderChecklist() {
+            const container = document.getElementById('checklist');
+            
+            checklistItems.forEach((item, index) => {
+                const itemEl = document.createElement('div');
+                itemEl.className = `checklist-item ${item.status}`;
+                itemEl.dataset.id = item.id;
+                
+                itemEl.innerHTML = `
+                    <div class="checklist-header" onclick="toggleItem(${item.id})">
+                        <div class="checkbox">
+                            ${item.status === 'completed' ? '✓' : ''}
+                        </div>
+                        <div class="checklist-title">
+                            <h3>${item.title}</h3>
+                            <span class="status">${getStatusText(item.status)}</span>
+                        </div>
+                        <svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="checklist-details">
+                            <div class="detail-section">
+                                <h4>What to Expect</h4>
+                                <p>${item.whatToExpect}</p>
+                            </div>
+                            <div class="detail-section">
+                                <h4>Your Action</h4>
+                                <p>${item.yourAction}</p>
+                            </div>
+                            <div class="detail-section">
+                                <h4>Timeline</h4>
+                                <p>${item.timeline}</p>
+                            </div>
+                            ${item.status !== 'completed' ? `
+                            <div class="contact-support">
+                                <p>Stuck on this step?</p>
+                                <a href="https://wa.me/918421884545" class="btn btn-primary btn-sm" target="_blank">Chat on WhatsApp</a>
+                            </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(itemEl);
+            });
+            
+            updateProgress();
+        }
+
+        function getStatusText(status) {
+            const statusMap = {
+                'completed': '✓ Completed',
+                'in_progress': '⏳ In Progress',
+                'pending': '○ Pending'
+            };
+            return statusMap[status] || status;
+        }
+
+        function toggleItem(id) {
+            const item = document.querySelector(`[data-id="${id}"]`);
+            item.classList.toggle('expanded');
+        }
+
+        function updateProgress() {
+            const completed = checklistItems.filter(i => i.status === 'completed').length;
+            const total = checklistItems.length;
+            const percentage = Math.round((completed / total) * 100);
+            
+            document.getElementById('progress-text').textContent = percentage + '%';
+            document.getElementById('progress-bar').style.width = percentage + '%';
+        }
+
+        // Initialize
+        renderChecklist();
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LPR7XW7PG5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LPR7XW7PG5');
+    </script>
+</body>
+</html>
