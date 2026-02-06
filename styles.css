@@ -1201,3 +1201,66 @@ body {
     font-weight: 600;
     margin-top: 16px;
 }
+
+
+/* ========================================
+   ICONS & PROFESSIONAL TOUCHES
+   ======================================== */
+.icon {
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+.icon-star {
+    color: #fbbf24;
+    margin-right: 6px;
+}
+
+.icon-bolt {
+    color: var(--color-primary);
+    margin-right: 6px;
+}
+
+/* Better form focus states */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.15);
+}
+
+/* Form error state */
+.form-group input:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+}
+
+/* Smooth transitions */
+.btn, .form-group input, .form-group textarea {
+    transition: all 0.2s ease;
+}
+
+/* Loading spinner for button */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
