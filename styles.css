@@ -1351,11 +1351,40 @@ a:hover {
 }
 
 /* ========================================
-   SAMPLE WORKFLOWS SECTION
+   WORKFLOWS SECTION
    ======================================== */
-.workflows-section {
-    padding: var(--section-padding) 0;
-    background: var(--bg-light);
+.workflows {
+    background: #0F172A;
+    padding: 120px 24px;
+}
+
+.workflows-container {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.workflows-eyebrow {
+    color: #94A3B8;
+    display: block;
+    text-align: center;
+}
+
+.workflows-headline {
+    font-size: 40px;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin: 16px 0;
+    letter-spacing: -0.025em;
+    text-align: center;
+}
+
+.workflows-subtext {
+    font-size: 17px;
+    color: #94A3B8;
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 56px;
+    line-height: 1.7;
 }
 
 .workflows-grid {
@@ -1364,152 +1393,179 @@ a:hover {
     gap: 24px;
 }
 
+/* Workflow card */
 .workflow-card {
-    background: var(--white);
-    border-radius: 20px;
+    background: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 16px;
     padding: 32px;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
 }
 
 .workflow-card:hover {
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-    transform: translateY(-4px);
+    border-color: #475569;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 }
 
-.workflow-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
+.workflow-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #F8FAFC;
+    margin: 0 0 24px 0;
 }
 
-.workflow-icon {
-    font-size: 2.5rem;
-}
-
-.workflow-header h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
+/* Before / After comparison */
 .workflow-comparison {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    padding: 16px;
-    background: var(--bg-light);
-    border-radius: 12px;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
 }
 
-.before, .after {
-    flex: 1;
+.workflow-before,
+.workflow-after {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.before .label, .after .label {
+.workflow-label {
     font-size: 11px;
-    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 4px;
-}
-
-.before .label {
-    color: var(--error);
-}
-
-.after .label {
-    color: var(--success);
-}
-
-.before p, .after p {
-    font-size: 15px;
-    color: var(--text-primary);
+    letter-spacing: 2px;
     font-weight: 600;
-    margin-bottom: 0;
+    color: #64748B;
 }
 
-.arrow {
-    font-size: 1.5rem;
-    color: var(--accent);
+.workflow-value {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
 }
 
+.workflow-value-before {
+    color: #F87171;
+}
+
+.workflow-value-after {
+    color: #4ADE80;
+}
+
+/* Tool tags */
 .workflow-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
     margin-bottom: 20px;
 }
 
-.workflow-expand {
-    width: 100%;
+.workflow-tool {
+    font-size: 11px;
+    font-weight: 500;
+    color: #94A3B8;
+    background: #334155;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+/* Expandable details */
+.workflow-details {
+    margin-top: auto;
+    border-top: 1px solid #334155;
+    padding-top: 16px;
+}
+
+.workflow-toggle {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px;
-    background: transparent;
-    border: 2px solid var(--border);
-    border-radius: 10px;
-    font-family: var(--font-primary);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-secondary);
+    justify-content: space-between;
     cursor: pointer;
-    transition: all 0.2s;
+    font-size: 14px;
+    font-weight: 500;
+    color: #94A3B8;
+    list-style: none;
+    transition: color 0.2s ease;
 }
 
-.workflow-expand:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+.workflow-toggle::-webkit-details-marker {
+    display: none;
 }
 
-.workflow-expand svg {
-    transition: transform 0.3s;
+.workflow-toggle::marker {
+    display: none;
+    content: '';
 }
 
-.workflow-card.expanded .workflow-expand svg {
+.workflow-toggle:hover {
+    color: #F8FAFC;
+}
+
+.workflow-toggle-icon {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+details[open] .workflow-toggle-icon {
     transform: rotate(180deg);
 }
 
-.workflow-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+.workflow-steps {
+    padding-top: 16px;
 }
 
-.workflow-card.expanded .workflow-details {
-    max-height: 400px;
-    padding-top: 20px;
+.workflow-steps ol {
+    margin: 0;
+    padding: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.workflow-details h4 {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--text-primary);
+.workflow-steps li {
+    font-size: 13px;
+    color: #94A3B8;
+    line-height: 1.6;
 }
 
-.workflow-details ol {
-    margin-left: 20px;
-    margin-bottom: 16px;
-}
-
-.workflow-details li {
-    font-size: 14px;
-    color: var(--text-secondary);
-    padding: 6px 0;
-    line-height: 1.5;
+.workflow-steps li::marker {
+    color: #475569;
 }
 
 .workflow-result {
-    background: rgba(16, 185, 129, 0.08);
-    padding: 12px 16px;
-    border-radius: 8px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #334155;
     font-size: 14px;
-    color: var(--text-primary);
+    color: #F8FAFC;
+    font-weight: 500;
 }
 
-.workflow-result strong {
-    color: var(--success);
+.workflow-result-label {
+    color: #4ADE80;
+    font-weight: 600;
+}
+
+/* Workflows tablet */
+@media (max-width: 1024px) {
+    .workflows-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Workflows mobile */
+@media (max-width: 640px) {
+    .workflows-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .workflows-headline {
+        font-size: 32px;
+    }
+    .workflow-card {
+        padding: 24px;
+    }
 }
 
 /* ========================================

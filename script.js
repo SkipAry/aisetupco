@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize all components
     initNavbar();
     initFAQ();
-    initWorkflows();
+
     initCalculator();
     initSmoothScroll();
     initLeadMagnetForm();
@@ -35,34 +35,6 @@ function initFAQ() {
             
             // Toggle current
             item.classList.toggle('active');
-        });
-    });
-}
-
-// ========================================
-// Workflow Expand/Collapse
-// ========================================
-function initWorkflows() {
-    const workflowCards = document.querySelectorAll('.workflow-card');
-    
-    workflowCards.forEach(card => {
-        const expandBtn = card.querySelector('.workflow-expand');
-        
-        expandBtn.addEventListener('click', () => {
-            const workflowType = card.dataset.workflow;
-            const isExpanding = !card.classList.contains('expanded');
-            
-            // Track workflow expand
-            trackEvent(isExpanding ? 'workflow_expand' : 'workflow_collapse', { 
-                workflow: workflowType 
-            });
-            
-            // Toggle current card
-            card.classList.toggle('expanded');
-            
-            // Update button text
-            const btnText = expandBtn.querySelector('span');
-            btnText.textContent = isExpanding ? 'Hide details' : 'See how it works';
         });
     });
 }
