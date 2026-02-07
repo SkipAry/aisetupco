@@ -949,116 +949,177 @@ a:hover {
 }
 
 /* ========================================
-   HOW IT WORKS - DETAILED SECTION
+   PROCESS TIMELINE
    ======================================== */
-.how-it-works-detailed {
-    padding: var(--section-padding) 0;
-    background: var(--bg-light);
+.process-timeline {
+    background: #FFFFFF;
+    padding: 120px 24px;
 }
 
-.section-lead {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-top: 12px;
-}
-
-.journey-steps {
+.process-timeline-container {
     max-width: 800px;
     margin: 0 auto;
 }
 
-.journey-step {
-    display: flex;
-    gap: 32px;
-    margin-bottom: 48px;
-}
-
-.journey-step:last-child {
-    margin-bottom: 0;
-}
-
-.step-visual-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.step-icon-circle {
-    width: 64px;
-    height: 64px;
-    background: var(--primary);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.step-icon-circle svg {
-    stroke: currentColor;
-}
-
-.step-connector {
-    width: 2px;
-    flex: 1;
-    background: var(--border);
-    margin-top: 16px;
-    min-height: 60px;
-}
-
-.journey-step:last-child .step-connector {
-    display: none;
-}
-
-.step-content-wrapper {
-    flex: 1;
-    background: var(--white);
-    padding: 32px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-}
-
-.step-badge {
-    display: inline-block;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--accent);
-    padding: 4px 12px;
-    border-radius: 100px;
-    font-size: 12px;
+.process-timeline-headline {
+    font-size: 40px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: #0F172A;
+    margin: 16px 0;
+    letter-spacing: -0.025em;
+    text-align: center;
+}
+
+.process-timeline-subtext {
+    font-size: 17px;
+    color: #64748B;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 64px;
+    line-height: 1.7;
+}
+
+/* Timeline structure */
+.timeline {
+    position: relative;
+    padding-left: 48px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: #E2E8F0;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 48px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -48px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #0F172A;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 0 2px #0F172A;
+    z-index: 1;
+}
+
+/* Timeline content */
+.timeline-content {
+    padding: 0 0 0 8px;
+}
+
+.timeline-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 12px;
 }
 
-.step-content-wrapper h3 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    margin-bottom: 16px;
+.timeline-phase {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #94A3B8;
 }
 
-.step-details {
-    list-style: none;
+.timeline-duration {
+    font-size: 12px;
+    font-weight: 500;
+    color: #475569;
+    background: #F1F5F9;
+    padding: 4px 12px;
+    border-radius: 20px;
 }
 
-.step-details li {
-    padding: 8px 0;
+.timeline-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #0F172A;
+    margin: 0 0 10px 0;
+}
+
+.timeline-description {
     font-size: 15px;
-    color: var(--text-secondary);
+    color: #64748B;
+    line-height: 1.7;
+    margin: 0 0 16px 0;
+    max-width: 520px;
+}
+
+.timeline-deliverables {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-.step-details .check {
-    color: var(--success);
-    font-weight: 700;
+.timeline-deliverable-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.how-it-works-cta {
+.timeline-deliverable {
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+}
+
+.timeline-deliverable-separator {
+    color: #CBD5E1;
+    font-size: 14px;
+}
+
+/* CTA below timeline */
+.process-timeline-cta {
     text-align: center;
-    margin-top: 48px;
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid #E2E8F0;
+}
+
+.process-timeline-cta-note {
+    font-size: 14px;
+    color: #94A3B8;
+    margin-top: 12px;
+}
+
+/* Timeline mobile */
+@media (max-width: 768px) {
+    .process-timeline-headline {
+        font-size: 32px;
+    }
+    .timeline {
+        padding-left: 36px;
+    }
+    .timeline-dot {
+        left: -36px;
+    }
+    .timeline-line {
+        left: 5px;
+    }
+    .timeline-title {
+        font-size: 19px;
+    }
+    .timeline-item {
+        padding-bottom: 36px;
+    }
 }
 
 /* ========================================
@@ -1600,76 +1661,6 @@ a:hover {
     font-size: 15px;
     font-weight: 600;
     color: var(--text-primary);
-}
-
-/* ========================================
-   PROCESS SECTION
-   ======================================== */
-.process-section {
-    padding: var(--section-padding) 0;
-    background: var(--white);
-}
-
-.process-timeline {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.process-step {
-    display: flex;
-    gap: 32px;
-    padding-bottom: 48px;
-    position: relative;
-}
-
-.process-step:last-child {
-    padding-bottom: 0;
-}
-
-.step-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.step-num {
-    width: 48px;
-    height: 48px;
-    background: var(--primary);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-
-.step-line {
-    width: 2px;
-    flex: 1;
-    background: var(--border);
-    margin-top: 16px;
-}
-
-.process-step:last-child .step-line {
-    display: none;
-}
-
-.step-content h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.step-content p {
-    font-size: 16px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-.step-content strong {
-    color: var(--accent);
 }
 
 /* ========================================
