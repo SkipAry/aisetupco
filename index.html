@@ -730,149 +730,139 @@
         </div>
     </section>
 
-    <!-- Time Savings Calculator -->
-    <section class="calculator-section">
-        <div class="container">
-            <div class="section-header centered">
-                <span class="section-badge section-badge-alt">Calculate Your Time Savings</span>
-                <h2>See How Much Time You're Losing</h2>
-                <p class="section-lead">Adjust the sliders to match your current workload. We'll show you the opportunity cost.</p>
-            </div>
+    <!-- ROI Calculator -->
+    <section class="calculator">
+        <div class="calculator-container">
+            <span class="section-eyebrow">ROI Calculator</span>
+            <h2 class="calculator-headline">Quantify Your Automation Opportunity</h2>
+            <p class="calculator-subtext">Estimate the time and cost savings based on your current workflow.</p>
 
-            <div class="calculator-wrapper">
+            <div class="calculator-card">
                 <div class="calculator-inputs">
-                    <div class="calc-field">
-                        <label>Hours spent on emails daily</label>
-                        <div class="slider-wrapper">
-                            <input type="range" id="email-hours" min="0" max="5" step="0.5" value="2">
-                            <span class="slider-value" id="email-value">2 hours</span>
+                    <div class="calculator-input-group">
+                        <label class="calculator-label" for="calc-emails">Emails handled manually per day</label>
+                        <div class="calculator-slider-row">
+                            <input type="range" id="calc-emails" class="calculator-range" min="0" max="50" step="5" value="20">
+                            <span class="calculator-value" id="calc-emails-value">20/day</span>
                         </div>
                     </div>
-                    <div class="calc-field">
-                        <label>Hours on scheduling weekly</label>
-                        <div class="slider-wrapper">
-                            <input type="range" id="scheduling-hours" min="0" max="10" step="0.5" value="3">
-                            <span class="slider-value" id="scheduling-value">3 hours</span>
+
+                    <div class="calculator-input-group">
+                        <label class="calculator-label" for="calc-scheduling">Hours on scheduling weekly</label>
+                        <div class="calculator-slider-row">
+                            <input type="range" id="calc-scheduling" class="calculator-range" min="0" max="10" step="1" value="3">
+                            <span class="calculator-value" id="calc-scheduling-value">3 hrs</span>
                         </div>
                     </div>
-                    <div class="calc-field">
-                        <label>Hours on research weekly</label>
-                        <div class="slider-wrapper">
-                            <input type="range" id="research-hours" min="0" max="20" step="1" value="5">
-                            <span class="slider-value" id="research-value">5 hours</span>
+
+                    <div class="calculator-input-group">
+                        <label class="calculator-label" for="calc-research">Hours on research weekly</label>
+                        <div class="calculator-slider-row">
+                            <input type="range" id="calc-research" class="calculator-range" min="0" max="15" step="1" value="5">
+                            <span class="calculator-value" id="calc-research-value">5 hrs</span>
                         </div>
                     </div>
-                    <div class="calc-field">
-                        <label>Your hourly rate (₹)</label>
-                        <div class="rate-input-wrapper">
-                            <input type="number" id="hourly-rate" value="2000" min="500" max="50000" step="500">
-                            <span class="rate-hint">Typical: ₹1,000-5,000</span>
+
+                    <div class="calculator-input-group">
+                        <label class="calculator-label" for="calc-rate">Your hourly rate (₹)</label>
+                        <div class="calculator-rate-row">
+                            <span class="calculator-rate-prefix">₹</span>
+                            <input type="number" id="calc-rate" class="calculator-rate-input" min="100" max="50000" step="100" value="2000">
+                            <span class="calculator-rate-hint">Typical: ₹1,000–5,000</span>
                         </div>
                     </div>
                 </div>
+
+                <div class="calculator-divider"></div>
 
                 <div class="calculator-results">
-                    <div class="result-card-calc loss">
-                        <h4>Current Loss</h4>
-                        <div class="result-number" id="weekly-loss">10 hours/week</div>
-                        <div class="result-money" id="annual-cost">₹10,40,000/year</div>
-                        <p class="result-desc">Time spent on tasks AI could handle</p>
+                    <div class="calculator-result-col calculator-result-current">
+                        <span class="calculator-result-heading">Current State</span>
+                        <span class="calculator-result-hours" id="calc-current-hours">520</span>
+                        <span class="calculator-result-unit">hours/year on manual tasks</span>
+                        <span class="calculator-result-cost" id="calc-current-cost">₹10.40L/year</span>
                     </div>
-                    <div class="result-arrow">→</div>
-                    <div class="result-card-calc savings">
-                        <h4>With TaskMeridian</h4>
-                        <div class="result-number" id="weekly-saved">8 hours/week</div>
-                        <div class="result-money" id="annual-saved">₹8,32,000/year</div>
-                        <p class="result-desc">Time saved with 80% automation</p>
+                    <div class="calculator-result-col calculator-result-saved">
+                        <span class="calculator-result-heading">With TaskMeridian</span>
+                        <span class="calculator-result-hours" id="calc-saved-hours">416</span>
+                        <span class="calculator-result-unit">hours/year recovered</span>
+                        <span class="calculator-result-cost" id="calc-saved-cost">₹8.32L/year</span>
                     </div>
                 </div>
 
-                <div class="calculator-cta">
-                    <a href="#book" class="btn btn-primary btn-lg" data-cta="calculator-reclaim">
-                        <span>Reclaim These Hours</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M4 10h12m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    <p class="cta-subtext">Your time is worth more</p>
+                <div class="calculator-cta-row">
+                    <a href="#book" class="btn-primary calculator-cta">Discuss Your Results</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Table Section -->
-    <section class="comparison-section">
-        <div class="container">
-            <div class="section-header centered">
-                <span class="section-badge">Why Choose TaskMeridian?</span>
-                <h2>Compare Your Options</h2>
-                <p class="section-lead">See how we stack up against DIY and freelancers.</p>
-            </div>
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="comparison-container">
+            <span class="section-eyebrow">How We Compare</span>
+            <h2 class="comparison-headline">Evaluate Your Options</h2>
+            <p class="comparison-subtext">An objective look at the three most common approaches to AI automation.</p>
 
             <div class="comparison-table-wrapper">
                 <table class="comparison-table">
                     <thead>
                         <tr>
-                            <th>Feature</th>
-                            <th class="option-diy">DIY (ChatGPT)</th>
-                            <th class="option-freelancer">Freelancer</th>
-                            <th class="option-taskmeridian">TaskMeridian</th>
+                            <th class="comparison-th comparison-th-feature">Feature</th>
+                            <th class="comparison-th">DIY (ChatGPT)</th>
+                            <th class="comparison-th">Freelancer</th>
+                            <th class="comparison-th comparison-th-highlight">TaskMeridian</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="feature-name">Setup Time</td>
-                            <td class="option-diy">Weeks of learning</td>
-                            <td class="option-freelancer">Uncertain timeline</td>
-                            <td class="option-taskmeridian highlight">✓ 3-5 days guaranteed</td>
+                            <td class="comparison-feature">Setup Time</td>
+                            <td class="comparison-cell">Weeks of learning</td>
+                            <td class="comparison-cell">Uncertain timeline</td>
+                            <td class="comparison-cell comparison-cell-highlight">3–5 days guaranteed</td>
                         </tr>
                         <tr>
-                            <td class="feature-name">Technical Skills Needed</td>
-                            <td class="option-diy">High - you build it</td>
-                            <td class="option-freelancer">Medium - some coordination</td>
-                            <td class="option-taskmeridian highlight">✓ None - we handle everything</td>
+                            <td class="comparison-feature">Technical Skills</td>
+                            <td class="comparison-cell">High — you build it</td>
+                            <td class="comparison-cell">Medium — some coordination</td>
+                            <td class="comparison-cell comparison-cell-highlight">None required</td>
                         </tr>
                         <tr>
-                            <td class="feature-name">Maintenance</td>
-                            <td class="option-diy">You handle all issues</td>
-                            <td class="option-freelancer">Pay extra for fixes</td>
-                            <td class="option-taskmeridian highlight">✓ Included (90 days)</td>
+                            <td class="comparison-feature">Maintenance</td>
+                            <td class="comparison-cell">You handle all issues</td>
+                            <td class="comparison-cell">Pay extra for fixes</td>
+                            <td class="comparison-cell comparison-cell-highlight">Included for 90 days</td>
                         </tr>
                         <tr>
-                            <td class="feature-name">Training</td>
-                            <td class="option-diy">Self-learn from tutorials</td>
-                            <td class="option-freelancer">Minimal documentation</td>
-                            <td class="option-taskmeridian highlight">✓ 1-on-1 session included</td>
+                            <td class="comparison-feature">Training</td>
+                            <td class="comparison-cell">Self-learn from tutorials</td>
+                            <td class="comparison-cell">Minimal documentation</td>
+                            <td class="comparison-cell comparison-cell-highlight">1-on-1 session included</td>
                         </tr>
                         <tr>
-                            <td class="feature-name">Support</td>
-                            <td class="option-diy">Community forums only</td>
-                            <td class="option-freelancer">Limited availability</td>
-                            <td class="option-taskmeridian highlight">✓ Direct founder access</td>
+                            <td class="comparison-feature">Support</td>
+                            <td class="comparison-cell">Community forums only</td>
+                            <td class="comparison-cell">Limited availability</td>
+                            <td class="comparison-cell comparison-cell-highlight">Direct founder access</td>
                         </tr>
                         <tr>
-                            <td class="feature-name">Cost</td>
-                            <td class="option-diy">Your time + tool subscriptions</td>
-                            <td class="option-freelancer">₹10,000 - ₹50,000+</td>
-                            <td class="option-taskmeridian highlight">✓ Starting at ₹2,499</td>
+                            <td class="comparison-feature">Cost</td>
+                            <td class="comparison-cell">Your time + subscriptions</td>
+                            <td class="comparison-cell">₹10,000 – ₹50,000+</td>
+                            <td class="comparison-cell comparison-cell-highlight">Starting at ₹2,499</td>
                         </tr>
                         <tr>
-                            <td class="feature-name">Reliability</td>
-                            <td class="option-diy">Varies with your skill</td>
-                            <td class="option-freelancer">Depends on individual</td>
-                            <td class="option-taskmeridian highlight">✓ 100% satisfaction guarantee</td>
+                            <td class="comparison-feature">Reliability</td>
+                            <td class="comparison-cell">Varies with your skill</td>
+                            <td class="comparison-cell">Depends on individual</td>
+                            <td class="comparison-cell comparison-cell-highlight">Satisfaction guarantee</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="comparison-cta">
-                <a href="#pricing" class="btn btn-primary btn-lg" data-cta="comparison-view-plans">
-                    <span>Compare Plans</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M4 10h12m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
+            <div class="comparison-bottom">
+                <a href="#pricing" class="comparison-link">See detailed pricing below ↓</a>
             </div>
         </div>
     </section>

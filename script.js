@@ -40,46 +40,45 @@ function initFAQ() {
 }
 
 // ========================================
-// Time Savings Calculator
+// ROI Calculator
 // ========================================
 function initCalculator() {
-    const emailSlider = document.getElementById('email-hours');
-    const schedulingSlider = document.getElementById('scheduling-hours');
-    const researchSlider = document.getElementById('research-hours');
-    const hourlyRateInput = document.getElementById('hourly-rate');
+    const emailsSlider = document.getElementById('calc-emails');
+    const schedulingSlider = document.getElementById('calc-scheduling');
+    const researchSlider = document.getElementById('calc-research');
+    const rateInput = document.getElementById('calc-rate');
     
-    if (!emailSlider || !schedulingSlider || !researchSlider || !hourlyRateInput) return;
+    if (!emailsSlider || !schedulingSlider || !researchSlider || !rateInput) return;
     
-    const emailValue = document.getElementById('email-value');
-    const schedulingValue = document.getElementById('scheduling-value');
-    const researchValue = document.getElementById('research-value');
+    const emailsValue = document.getElementById('calc-emails-value');
+    const schedulingValue = document.getElementById('calc-scheduling-value');
+    const researchValue = document.getElementById('calc-research-value');
     
-    const weeklyLossEl = document.getElementById('weekly-loss');
-    const annualCostEl = document.getElementById('annual-cost');
-    const weeklySavedEl = document.getElementById('weekly-saved');
-    const annualSavedEl = document.getElementById('annual-saved');
+    const currentHoursEl = document.getElementById('calc-current-hours');
+    const currentCostEl = document.getElementById('calc-current-cost');
+    const savedHoursEl = document.getElementById('calc-saved-hours');
+    const savedCostEl = document.getElementById('calc-saved-cost');
     
     let hasTrackedCalculatorUse = false;
     
     function formatCurrency(amount) {
+        // Format in Lakhs for Indian context
         if (amount >= 100000) {
-            return '₹' + (amount / 100000).toFixed(2) + 'L';
-        } else if (amount >= 1000) {
-            return '₹' + (amount / 1000).toFixed(1) + 'K';
+            return '₹' + (amount / 100000).toFixed(2) + 'L/year';
         }
-        return '₹' + amount;
+        return '₹' + amount.toLocaleString('en-IN') + '/year';
     }
     
-    function calculate() {
-        const emailHours = parseFloat(emailSlider.value) || 0;
-        const schedulingHours = parseFloat(schedulingSlider.value) || 0;
-        const researchHours = parseFloat(researchSlider.value) || 0;
-        const hourlyRate = parseFloat(hourlyRateInput.value) || 2000;
+    function updateCalculator() {
+        const emailsPerDay = parseInt(emailsSlider.value) || 0;
+        const schedulingHours = parseInt(schedulingSlider.value) || 0;
+        const researchHours = parseInt(researchSlider.value) || 0;
+        const hourlyRate = parseInt(rateInput.value) || 2000;
         
-        // Track first calculator interaction
+        // Track first interaction
         if (!hasTrackedCalculatorUse) {
             trackEvent('calculator_interaction', {
-                email_hours: emailHours,
+                emails_per_day: emailsPerDay,
                 scheduling_hours: schedulingHours,
                 research_hours: researchHours,
                 hourly_rate: hourlyRate
@@ -87,39 +86,39 @@ function initCalculator() {
             hasTrackedCalculatorUse = true;
         }
         
-        // Update slider labels
-        emailValue.textContent = emailHours + (emailHours === 1 ? ' hour' : ' hours');
-        schedulingValue.textContent = schedulingHours + (schedulingHours === 1 ? ' hour' : ' hours');
-        researchValue.textContent = researchHours + (researchHours === 1 ? ' hour' : ' hours');
+        // Update value displays
+        emailsValue.textContent = emailsPerDay + '/day';
+        schedulingValue.textContent = schedulingHours + ' hrs';
+        researchValue.textContent = researchHours + ' hrs';
         
-        // Calculate weekly hours
-        const weeklyEmailHours = emailHours * 5;
-        const totalWeeklyHours = weeklyEmailHours + schedulingHours + researchHours;
+        // Calculate weekly hours (emails * 5 work days, assuming 5 min per email = 12 emails/hr)
+        const emailHoursPerWeek = (emailsPerDay * 5) / 12;
+        const totalWeeklyHours = emailHoursPerWeek + schedulingHours + researchHours;
         
         // Calculate savings (80% automation efficiency)
-        const weeklySaved = totalWeeklyHours * 0.8;
+        const weeklyHoursSaved = totalWeeklyHours * 0.8;
         
-        // Calculate costs
-        const weeklyCost = totalWeeklyHours * hourlyRate;
-        const annualCost = weeklyCost * 52;
-        const weeklySavedCost = weeklySaved * hourlyRate;
-        const annualSaved = weeklySavedCost * 52;
+        // Calculate annual costs (52 weeks)
+        const annualHours = totalWeeklyHours * 52;
+        const annualHoursSaved = weeklyHoursSaved * 52;
+        const annualCost = annualHours * hourlyRate;
+        const annualSavings = annualHoursSaved * hourlyRate;
         
         // Update display
-        weeklyLossEl.textContent = totalWeeklyHours.toFixed(1) + ' hours/week';
-        annualCostEl.textContent = formatCurrency(annualCost) + '/year';
-        weeklySavedEl.textContent = weeklySaved.toFixed(1) + ' hours/week';
-        annualSavedEl.textContent = formatCurrency(annualSaved) + '/year';
+        currentHoursEl.textContent = annualHours.toFixed(0);
+        currentCostEl.textContent = formatCurrency(annualCost);
+        savedHoursEl.textContent = annualHoursSaved.toFixed(0);
+        savedCostEl.textContent = formatCurrency(annualSavings);
     }
     
-    // Add event listeners
-    emailSlider.addEventListener('input', calculate);
-    schedulingSlider.addEventListener('input', calculate);
-    researchSlider.addEventListener('input', calculate);
-    hourlyRateInput.addEventListener('input', calculate);
+    // Event listeners
+    emailsSlider.addEventListener('input', updateCalculator);
+    schedulingSlider.addEventListener('input', updateCalculator);
+    researchSlider.addEventListener('input', updateCalculator);
+    rateInput.addEventListener('input', updateCalculator);
     
     // Initial calculation
-    calculate();
+    updateCalculator();
 }
 
 // ========================================
