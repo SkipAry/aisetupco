@@ -103,16 +103,6 @@
             heroCta.textContent = 'Book Your Call Now';
         }
         
-        // Add "Welcome back" badge
-        const heroBadge = document.querySelector('.hero-badge');
-        if (heroBadge && !document.querySelector('.welcome-back-badge')) {
-            const welcomeBadge = document.createElement('div');
-            welcomeBadge.className = 'welcome-back-badge';
-            welcomeBadge.style.cssText = 'background: rgba(5, 150, 105, 0.1); color: #059669; padding: 8px 16px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; display: inline-block;';
-            welcomeBadge.textContent = '👋 Welcome back!';
-            heroBadge.parentNode.insertBefore(welcomeBadge, heroBadge);
-        }
-        
         // Scroll returning visitors to pricing faster
         const pricingCta = document.querySelector('a[href="#pricing"]');
         if (pricingCta) {

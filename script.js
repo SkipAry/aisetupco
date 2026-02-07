@@ -1,6 +1,7 @@
 // TaskMeridian - CRO Optimized JavaScript with Analytics
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize all components
+    initNavbar();
     initFAQ();
     initWorkflows();
     initCalculator();
@@ -9,9 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initAnalytics();
     initScrollTracking();
     initNewsletterPopup();
-    
-    // Optional: Urgency banner
-    // showUrgencyBanner();
 });
 
 // ========================================
@@ -499,17 +497,22 @@ function showLegalTab(tabName) {
 document.addEventListener('DOMContentLoaded', initLegalTabs);
 
 // ========================================
-// Urgency Banner (Optional)
+// Navbar Scroll Behavior
 // ========================================
-function showUrgencyBanner() {
-    const banner = document.querySelector('.trust-banner-top p');
-    if (!banner) return;
+function initNavbar() {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 20);
+        });
+    }
     
-    const spots = 47;
-    const updateBanner = () => {
-        const remaining = Math.max(1, spots - Math.floor(Math.random() * 3));
-        banner.innerHTML = `🚀 <strong>${remaining} spots remaining</strong> this month. Book your free call before they're gone.`;
-    };
-    
-    setInterval(updateBanner, 30000);
+    // Mobile hamburger toggle
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
 }
