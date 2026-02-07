@@ -13,20 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========================================
-// Video Modal
-// ========================================
-function openVideoModal(videoId) {
-    trackEvent('video_click', { video: videoId });
-    
-    // For now, show coming soon message
-    // In production, this would open a modal with the video
-    alert('Video coming soon! Subscribe to our newsletter to get notified when it\'s ready.');
-}
-
-// Make function global
-window.openVideoModal = openVideoModal;
-
-// ========================================
 // FAQ Accordion
 // ========================================
 function initFAQ() {
