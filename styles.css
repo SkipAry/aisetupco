@@ -1680,57 +1680,18 @@ a:hover {
 }
 
 /* ========================================
-   RESULTS SECTION
+   METRICS BAR
    ======================================== */
-.results-section {
-    padding: var(--section-padding) 0;
-    background: var(--bg-light);
+.metrics-bar {
+    background: #FFFFFF;
+    padding: 80px 24px;
+    border-top: 1px solid #E2E8F0;
+    border-bottom: 1px solid #E2E8F0;
 }
 
-.results-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-bottom: 64px;
-}
-
-.result-card {
-    background: var(--white);
-    padding: 32px 24px;
-    border-radius: 16px;
-    text-align: center;
-    border: 1px solid var(--border);
-}
-
-.result-metric {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    line-height: 1;
-    margin-bottom: 4px;
-}
-
-.result-unit {
-    display: block;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-}
-
-.result-desc {
-    font-size: 14px;
-    color: var(--text-muted);
-}
-
-/* ========================================
-   SOCIAL PROOF METRICS
-   ======================================== */
-.social-proof-metrics {
-    padding: 60px 0;
-    background: var(--primary);
-    color: var(--white);
+.metrics-container {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .metrics-grid {
@@ -1741,19 +1702,59 @@ a:hover {
 }
 
 .metric-item {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
 .metric-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 8px;
+    font-size: 48px;
+    font-weight: 700;
+    color: #0F172A;
+    letter-spacing: -0.03em;
+    line-height: 1;
 }
 
 .metric-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748B;
+    line-height: 1.4;
+}
+
+.metrics-testimonial-placeholder {
+    margin-top: 48px;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid #E2E8F0;
+}
+
+.metrics-testimonial-placeholder p {
     font-size: 15px;
-    opacity: 0.9;
+    font-style: italic;
+    color: #94A3B8;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Metrics bar mobile */
+@media (max-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 24px;
+    }
+    .metric-number {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
 }
 
 /* ========================================
