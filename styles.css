@@ -646,62 +646,97 @@ a:hover {
 /* ========================================
    SOLUTION SECTION
    ======================================== */
-.solution-section {
-    padding: var(--section-padding) 0;
-    background: var(--white);
+.solution {
+    background: #F8FAFC;
+    padding: 120px 24px;
 }
 
-.solution-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 60px;
-}
-
-.solution-header h2 {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 700;
-    margin-bottom: 16px;
-}
-
-.solution-lead {
-    font-size: 1.15rem;
-    color: var(--text-secondary);
-}
-
-.usp-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    max-width: 900px;
+.solution-container {
+    max-width: 1120px;
     margin: 0 auto;
 }
 
-.usp-card {
-    background: var(--bg-light);
-    padding: 40px;
+.solution .section-eyebrow {
+    display: block;
+    text-align: center;
+}
+
+.solution-headline {
+    font-size: 40px;
+    font-weight: 700;
+    color: #0F172A;
+    margin: 16px 0;
+    letter-spacing: -0.025em;
+    text-align: center;
+}
+
+.solution-subtext {
+    font-size: 17px;
+    color: #64748B;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+    line-height: 1.7;
+}
+
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.solution-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
     border-radius: 16px;
-    border: 1px solid var(--border);
+    padding: 40px;
+    transition: all 0.2s ease;
 }
 
-.usp-number {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--accent);
+.solution-card:hover {
+    border-color: #CBD5E1;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
+.solution-card-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: #E2E8F0;
+    line-height: 1;
+    display: block;
     margin-bottom: 16px;
-    letter-spacing: 0.1em;
+    letter-spacing: -0.03em;
 }
 
-.usp-card h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 12px;
+.solution-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0F172A;
+    margin: 0 0 12px 0;
 }
 
-.usp-card p {
+.solution-card-desc {
     font-size: 15px;
-    color: var(--text-secondary);
+    color: #64748B;
     line-height: 1.6;
-    margin-bottom: 0;
+    margin: 0;
+}
+
+/* Solution section mobile */
+@media (max-width: 768px) {
+    .solution-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .solution-headline {
+        font-size: 32px;
+    }
+    .solution-card {
+        padding: 32px;
+    }
+    .solution-card-number {
+        font-size: 40px;
+    }
 }
 
 /* ========================================
