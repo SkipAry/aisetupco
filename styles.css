@@ -3224,6 +3224,19 @@ details[open] .faq-icon .faq-icon-h {
         display: flex;
     }
     
+    /* Center-align dropdown menu with main nav items */
+    .nav-dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-trigger {
+        text-align: center;
+    }
+
     .dropdown-menu {
         position: static;
         opacity: 1;
@@ -3231,7 +3244,15 @@ details[open] .faq-icon .faq-icon-h {
         transform: none;
         box-shadow: none;
         border: none;
-        padding-left: 16px;
+        padding-left: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .dropdown-menu a {
+        text-align: center;
+        display: block;
+        padding-left: 0;
     }
     
     .services-grid,
