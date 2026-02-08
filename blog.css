@@ -6,18 +6,19 @@
 .blog-header {
     padding: 80px 0 40px;
     text-align: center;
-    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    background: #F8FAFC;
 }
 
 .blog-header h1 {
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 16px;
+    color: #0F172A;
 }
 
 .blog-intro {
     font-size: 1.2rem;
-    color: var(--color-text-secondary);
+    color: #64748B;
     max-width: 600px;
     margin: 0 auto 32px;
 }
@@ -33,30 +34,31 @@
 .category-btn {
     padding: 10px 24px;
     background: white;
-    border: 2px solid var(--color-border);
+    border: 1px solid #E2E8F0;
     border-radius: 100px;
-    font-family: var(--font-primary);
+    font-family: inherit;
     font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-text-secondary);
+    font-weight: 500;
+    color: #475569;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
 }
 
 .category-btn:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+    border-color: #94A3B8;
+    color: #0F172A;
 }
 
 .category-btn.active {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
+    background: #0F172A;
+    border-color: #0F172A;
     color: white;
 }
 
 /* Featured Post */
 .featured-post {
     padding: 40px 0;
+    background: #F8FAFC;
 }
 
 .featured-card {
@@ -64,17 +66,17 @@
     grid-template-columns: 1fr 1fr;
     gap: 48px;
     background: white;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid var(--color-border);
+    border: 1px solid #E2E8F0;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .featured-card:hover {
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+    transform: translateY(-2px);
 }
 
 .featured-image {
@@ -89,23 +91,29 @@
     align-items: center;
     justify-content: center;
     min-height: 400px;
+    background: #F1F5F9;
 }
 
-.thumbnail-icon {
-    font-size: 6rem;
+.post-thumbnail-placeholder.featured-placeholder {
+    background: #1E293B;
+}
+
+.post-thumbnail-placeholder svg {
+    opacity: 0.5;
 }
 
 .featured-badge {
     position: absolute;
     top: 20px;
     left: 20px;
-    background: var(--color-primary);
+    background: #0F172A;
     color: white;
     padding: 8px 16px;
     border-radius: 100px;
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .featured-content {
@@ -120,21 +128,24 @@
     gap: 16px;
     margin-bottom: 16px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .post-category {
-    background: rgba(217, 119, 87, 0.1);
-    color: var(--color-primary);
+    background: #F1F5F9;
+    color: #475569;
     padding: 4px 12px;
     border-radius: 100px;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid #E2E8F0;
 }
 
 .post-date, .read-time {
     font-size: 0.85rem;
-    color: var(--color-text-muted);
+    color: #94A3B8;
 }
 
 .featured-content h2 {
@@ -173,6 +184,7 @@
 /* Blog Grid */
 .blog-grid-section {
     padding: 60px 0;
+    background: #F8FAFC;
 }
 
 .blog-grid {
@@ -183,15 +195,15 @@
 
 .blog-card {
     background: white;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--color-border);
-    transition: all 0.3s ease;
+    border: 1px solid #E2E8F0;
+    transition: all 0.2s ease;
 }
 
 .blog-card:hover {
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+    transform: translateY(-2px);
 }
 
 .blog-card-link {
@@ -207,10 +219,7 @@
 
 .blog-card-image .post-thumbnail-placeholder {
     min-height: 200px;
-}
-
-.blog-card-image .thumbnail-icon {
-    font-size: 4rem;
+    background: #F1F5F9;
 }
 
 .blog-card-content {
@@ -236,12 +245,12 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 16px;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid #E2E8F0;
 }
 
 .read-more {
-    color: var(--color-primary);
-    font-weight: 600;
+    color: #0F172A;
+    font-weight: 500;
     font-size: 0.9rem;
 }
 
@@ -251,71 +260,26 @@
     margin-top: 48px;
 }
 
-/* Blog Newsletter */
-.blog-newsletter {
-    padding: 80px 0;
-    background: var(--color-bg-warm);
-}
-
-.newsletter-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
+.load-more-btn {
     background: white;
-    padding: 48px;
-    border-radius: 20px;
-    border: 1px solid var(--color-border);
+    border: 1px solid #E2E8F0;
+    color: #0F172A;
+    font-weight: 500;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.newsletter-content h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.newsletter-content > p {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 20px;
-}
-
-.newsletter-benefits {
-    list-style: none;
-}
-
-.newsletter-benefits li {
-    padding: 8px 0;
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-}
-
-.newsletter-form-inline {
-    display: flex;
-    gap: 12px;
-}
-
-.newsletter-form-inline .form-group {
-    flex: 1;
-}
-
-.newsletter-form-inline input {
-    width: 100%;
-    padding: 14px 18px;
-    border: 2px solid var(--color-border);
-    border-radius: 10px;
-    font-family: var(--font-primary);
-    font-size: 1rem;
-}
-
-.newsletter-form-inline input:focus {
-    outline: none;
-    border-color: var(--color-primary);
+.load-more-btn:hover {
+    border-color: #94A3B8;
 }
 
 /* Active Nav State */
 .nav-links a.active {
-    color: var(--color-primary);
+    color: #0F172A;
     font-weight: 600;
 }
 
@@ -337,10 +301,6 @@
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .newsletter-box {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
 }
 
 @media (max-width: 768px) {
