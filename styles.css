@@ -2553,93 +2553,6 @@ details[open] .faq-icon .faq-icon-h {
 }
 
 /* ========================================
-   LEAD MAGNET SECTION
-   ======================================== */
-.lead-magnet-section {
-    padding: var(--section-padding) 0;
-    background: var(--bg-light);
-}
-
-.lead-magnet-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.lead-magnet-content h2 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 700;
-    margin-bottom: 16px;
-}
-
-.lead-magnet-content > p {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-}
-
-.lead-magnet-benefits {
-    list-style: none;
-    margin-bottom: 24px;
-}
-
-.lead-magnet-benefits li {
-    padding: 12px 0;
-    font-size: 15px;
-    color: var(--text-secondary);
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    border-bottom: 1px solid var(--border);
-}
-
-.lead-magnet-benefits li:last-child {
-    border-bottom: none;
-}
-
-.lead-magnet-benefits .check {
-    color: var(--success);
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
-.privacy-note {
-    font-size: 14px;
-    color: var(--text-muted);
-}
-
-.lead-magnet-form-wrapper {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-}
-
-.lead-magnet-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.lead-magnet-form .form-group input {
-    width: 100%;
-    padding: 14px 18px;
-    border: 2px solid var(--border);
-    border-radius: 10px;
-    font-family: var(--font-primary);
-    font-size: 16px;
-    transition: border-color 0.2s;
-}
-
-.lead-magnet-form .form-group input:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
-/* ========================================
    ABOUT / LEADERSHIP SECTION
    ======================================== */
 .about {
@@ -2767,59 +2680,182 @@ details[open] .faq-icon .faq-icon-h {
 }
 
 /* ========================================
-   FINAL CTA
+   FINAL CTA / BOOKING SECTION
    ======================================== */
 .final-cta {
-    padding: var(--section-padding) 0;
-    background: var(--white);
+    background: #0F172A;
+    padding: 120px 24px;
+    border-bottom: 1px solid #1E293B;
 }
-
-.cta-box {
-    max-width: 700px;
+.final-cta-container {
+    max-width: 1040px;
     margin: 0 auto;
-    text-align: center;
+}
+.final-cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
 }
 
-.cta-badge {
-    display: inline-block;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--accent);
-    padding: 8px 20px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 24px;
+/* Left content column */
+.final-cta-content {
+    padding-top: 16px;
 }
-
-.cta-box h2 {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+.final-cta-headline {
+    font-size: 36px;
     font-weight: 700;
-    margin-bottom: 16px;
+    color: #F8FAFC;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
 }
-
-.cta-box > p {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: 32px;
-    line-height: 1.6;
+.final-cta-subtext {
+    font-size: 17px;
+    color: #94A3B8;
+    line-height: 1.7;
+    margin: 0 0 32px 0;
 }
-
-.cta-box strong {
-    color: var(--text-primary);
+.final-cta-trust-points {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
-
-.cta-buttons {
-    margin-bottom: 32px;
+.final-cta-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-
-.cta-small {
+.final-cta-trust-item svg {
+    flex-shrink: 0;
+}
+.final-cta-trust-item span {
     font-size: 15px;
-    color: var(--text-muted);
+    color: #CBD5E1;
 }
 
-.cta-small a {
-    color: var(--accent);
+/* Right form column */
+.final-cta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.final-cta-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.final-cta-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #94A3B8;
+}
+.final-cta-optional {
+    color: #64748B;
+    font-weight: 400;
+}
+.final-cta-input,
+.final-cta-textarea {
+    background: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #F8FAFC;
+    outline: none;
+    transition: border-color 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+.final-cta-input::placeholder,
+.final-cta-textarea::placeholder {
+    color: #475569;
+}
+.final-cta-input:focus,
+.final-cta-textarea:focus {
+    border-color: #94A3B8;
+}
+.final-cta-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+.final-cta-submit {
+    background: #FFFFFF;
+    color: #0F172A;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 15px;
     font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-top: 4px;
+}
+.final-cta-submit:hover {
+    background: #F1F5F9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+}
+.final-cta-privacy {
+    font-size: 12px;
+    color: #64748B;
+    text-align: center;
+    margin: 0;
+}
+.final-cta-privacy a {
+    color: #94A3B8;
+    text-decoration: underline;
+    text-decoration-color: #475569;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+}
+.final-cta-privacy a:hover {
+    color: #F8FAFC;
+}
+
+/* Bottom trust bar */
+.final-cta-bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid #1E293B;
+}
+.final-cta-bottom-item {
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748B;
+}
+.final-cta-bottom-sep {
+    color: #334155;
+    font-size: 12px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .final-cta-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .final-cta-headline {
+        font-size: 28px;
+    }
+    .final-cta-content {
+        text-align: center;
+        padding-top: 0;
+    }
+    .final-cta-trust-points {
+        align-items: center;
+    }
+    .final-cta-bottom-bar {
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
 }
 
 /* ========================================

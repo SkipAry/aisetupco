@@ -1304,48 +1304,6 @@
         </div>
     </section>
 
-    <!-- Lead Magnet Section -->
-    <section class="lead-magnet-section">
-        <div class="container">
-            <div class="lead-magnet-wrapper">
-                <div class="lead-magnet-content">
-                    <span class="section-badge">Free Resource</span>
-                    <h2>Get Our Free AI Automation Starter Kit</h2>
-                    <p>Everything you need to start automating your work today. No technical skills required.</p>
-                    <ul class="lead-magnet-benefits">
-                        <li><span class="check">✓</span> <strong>10 Tasks You Should Automate Today</strong> - Save 5+ hours immediately</li>
-                        <li><span class="check">✓</span> <strong>5 Free AI Tools Every Indian Professional Needs</strong> - Start for ₹0</li>
-                        <li><span class="check">✓</span> <strong>Email Templates for Delegation</strong> - Copy-paste ready</li>
-                        <li><span class="check">✓</span> <strong>Automation ROI Calculator</strong> - Spreadsheet included</li>
-                    </ul>
-                    <p class="privacy-note">🔒 We respect your inbox. No spam, ever.</p>
-                </div>
-                <div class="lead-magnet-form-wrapper">
-                    <form class="lead-magnet-form" action="https://formspree.io/f/mreazvgz" method="POST">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" name="whatsapp" placeholder="WhatsApp Number (Optional)">
-                        </div>
-                        <input type="hidden" name="source" value="lead-magnet">
-                        <button type="submit" class="btn btn-primary btn-full" data-cta="lead-magnet-download">
-                            <span>Send Me The Kit</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                                <polyline points="7 10 12 15 17 10"/>
-                                <line x1="12" y1="15" x2="12" y2="3"/>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- About / Leadership Section -->
     <section class="about" id="about">
         <div class="about-container">
@@ -1377,42 +1335,60 @@
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section id="book" class="final-cta">
-        <div class="container">
-            <div class="cta-box">
-                <span class="cta-badge">Schedule Your Free Consultation</span>
-                <h2>Ready to Get 10+ Hours Back Every Week?</h2>
-                <p>Book your free 30-minute discovery call. We'll analyze your workflow, identify automation opportunities, and show you exactly what's possible—<strong>zero obligation, zero pressure.</strong></p>
-                
-                <form action="https://formspree.io/f/mreazvgz" method="POST" class="booking-form">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
+    <!-- Final CTA / Booking Section -->
+    <section class="final-cta" id="book">
+        <div class="final-cta-container">
+            <div class="final-cta-grid">
+                <div class="final-cta-content">
+                    <h2 class="final-cta-headline">Ready to Transform Your Workflow?</h2>
+                    <p class="final-cta-subtext">Book a complimentary 30-minute discovery call. We'll analyze your workflow, identify your highest-impact automation opportunities, and outline a tailored implementation plan.</p>
+                    <div class="final-cta-trust-points">
+                        <div class="final-cta-trust-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#4ADE80" stroke-width="2"><path d="M3 8.5l3.5 3.5 6.5-7"/></svg>
+                            <span>No obligation or commitment</span>
+                        </div>
+                        <div class="final-cta-trust-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#4ADE80" stroke-width="2"><path d="M3 8.5l3.5 3.5 6.5-7"/></svg>
+                            <span>Actionable insights from day one</span>
+                        </div>
+                        <div class="final-cta-trust-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#4ADE80" stroke-width="2"><path d="M3 8.5l3.5 3.5 6.5-7"/></svg>
+                            <span>Full implementation plan included</span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="phone" placeholder="Your Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Tell us about your work (optional)" rows="3"></textarea>
-                    </div>
-                    <div class="form-consent">
-                        <label class="consent-label">
-                            <input type="checkbox" name="consent" required>
-                            <span>I agree to the <a href="#legal" onclick="showLegalTab('privacy')">Privacy Policy</a> and <a href="#legal" onclick="showLegalTab('terms')">Terms of Service</a></span>
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg">
-                        <span>Book Your Free Call Now</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M4 10h12m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </form>
+                </div>
 
-                <p class="cta-small">Or email us directly at <a href="mailto:udgarudaston@gmail.com">hello@taskmeridian.com</a></p>
+                <div class="final-cta-form-col">
+                    <form class="final-cta-form" action="https://formspree.io/f/mreazvgz" method="POST">
+                        <div class="final-cta-field">
+                            <label class="final-cta-label" for="book-name">Full Name</label>
+                            <input type="text" id="book-name" name="name" class="final-cta-input" placeholder="Your full name" required>
+                        </div>
+                        <div class="final-cta-field">
+                            <label class="final-cta-label" for="book-email">Email Address</label>
+                            <input type="email" id="book-email" name="email" class="final-cta-input" placeholder="you@example.com" required>
+                        </div>
+                        <div class="final-cta-field">
+                            <label class="final-cta-label" for="book-phone">Phone Number</label>
+                            <input type="tel" id="book-phone" name="phone" class="final-cta-input" placeholder="Your phone number" required>
+                        </div>
+                        <div class="final-cta-field">
+                            <label class="final-cta-label" for="book-message">About Your Work <span class="final-cta-optional">(optional)</span></label>
+                            <textarea id="book-message" name="message" class="final-cta-textarea" placeholder="Briefly describe your role and what tasks you'd like to automate" rows="3"></textarea>
+                        </div>
+                        <input type="hidden" name="_source" value="website-booking">
+                        <button type="submit" class="final-cta-submit">Book Your Consultation</button>
+                        <p class="final-cta-privacy">By submitting, you agree to our <a href="privacy-policy.html">privacy policy</a>.</p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="final-cta-bottom-bar">
+                <span class="final-cta-bottom-item">256-bit Security</span>
+                <span class="final-cta-bottom-sep">|</span>
+                <span class="final-cta-bottom-item">Satisfaction Guarantee</span>
+                <span class="final-cta-bottom-sep">|</span>
+                <span class="final-cta-bottom-item">3–5 Day Delivery</span>
             </div>
         </div>
     </section>

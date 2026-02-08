@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initCalculator();
     initSmoothScroll();
-    initLeadMagnetForm();
+    initBookingForm();
     initAnalytics();
     initScrollTracking();
 
@@ -139,25 +139,27 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// Lead Magnet Form
+// Booking Form Handler
 // ========================================
-function initLeadMagnetForm() {
-    const form = document.querySelector('.lead-magnet-form');
+function initBookingForm() {
+    const form = document.querySelector('.final-cta-form');
     if (!form) return;
     
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Track lead magnet submission
-        trackEvent('lead_magnet_submit', {
-            source: 'starter_kit'
-        });
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
         
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
+        trackEvent('booking_form_submit');
+        
+        const submitBtn = form.querySelector('.final-cta-submit');
+        const originalText = submitBtn.textContent;
         
         submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Sending...';
+        submitBtn.textContent = 'Sending...';
         
         try {
             const response = await fetch(form.action, {
@@ -167,27 +169,30 @@ function initLeadMagnetForm() {
             });
             
             if (response.ok) {
+                trackEvent('booking_form_success');
+                
                 form.innerHTML = `
-                    <div style="text-align: center; padding: 40px 20px;">
-                        <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
-                        <h3 style="margin-bottom: 12px; color: var(--color-success);">Check Your Email!</h3>
-                        <p style="color: var(--color-text-secondary);">Your AI Automation Starter Kit is on its way.</p>
+                    <div class="form-success" style="padding: 32px; border-radius: 12px; background: rgba(74, 222, 128, 0.1); border: 1px solid rgba(74, 222, 128, 0.2);">
+                        <div style="font-size: 48px; margin-bottom: 16px; color: #4ADE80;">✓</div>
+                        <h3 style="margin-bottom: 12px; color: #F8FAFC; font-size: 20px;">Thank You!</h3>
+                        <p style="color: #94A3B8; line-height: 1.6;">We've received your request and will contact you within <strong style="color: #F8FAFC;">24 hours</strong> to schedule your consultation.</p>
                     </div>
                 `;
                 
-                trackEvent('lead_magnet_success');
+                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else {
                 throw new Error('Form submission failed');
             }
         } catch (error) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
+            trackEvent('booking_form_error', { error: error.message });
             
-            trackEvent('lead_magnet_error', { error: error.message });
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
             
             const errorDiv = document.createElement('div');
-            errorDiv.style.cssText = 'padding: 12px; margin-top: 16px; border-radius: 8px; background: rgba(239, 68, 68, 0.1); color: #ef4444; font-size: 0.9rem;';
-            errorDiv.innerHTML = '❌ Something went wrong. Please try again.';
+            errorDiv.className = 'form-error';
+            errorDiv.style.cssText = 'padding: 12px; margin-top: 16px; border-radius: 8px; background: rgba(239, 68, 68, 0.1); color: #ef4444; font-size: 14px;';
+            errorDiv.innerHTML = 'Something went wrong. Please try again or email us at <a href="mailto:hello@taskmeridian.com" style="color: #ef4444; text-decoration: underline;">hello@taskmeridian.com</a>';
             
             const existingError = form.querySelector('.form-error');
             if (existingError) existingError.remove();
@@ -266,89 +271,6 @@ function trackEvent(eventName, params = {}) {
     // Console log for debugging
     console.log('[Analytics]', eventName, params);
 }
-
-// ========================================
-// Booking Form Handler
-// ========================================
-function initBookingForm() {
-    const form = document.querySelector('.booking-form');
-    if (!form) return;
-    
-    const inputs = form.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-        input.addEventListener('blur', () => {
-            if (input.checkValidity()) {
-                input.style.borderColor = '#059669';
-            } else if (input.value) {
-                input.style.borderColor = '#ef4444';
-            }
-        });
-        
-        input.addEventListener('focus', () => {
-            input.style.borderColor = '';
-        });
-    });
-    
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
-        
-        trackEvent('booking_form_submit');
-        
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        
-        submitBtn.disabled = true;
-        submitBtn.classList.add('btn-loading');
-        
-        try {
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            });
-            
-            if (response.ok) {
-                trackEvent('booking_form_success');
-                
-                form.innerHTML = `
-                    <div class="form-success" style="padding: 24px; border-radius: 12px; background: rgba(5, 150, 105, 0.1); color: #059669;">
-                        <div style="font-size: 48px; margin-bottom: 16px;">✓</div>
-                        <h3 style="margin-bottom: 8px; color: #059669;">Thank You!</h3>
-                        <p>We've received your request and will contact you within <strong>24 hours</strong>.</p>
-                        <p style="margin-top: 12px; font-size: 0.9rem; opacity: 0.8;">Check your email for confirmation.</p>
-                    </div>
-                `;
-                
-                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                throw new Error('Form submission failed');
-            }
-        } catch (error) {
-            trackEvent('booking_form_error', { error: error.message });
-            
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('btn-loading');
-            submitBtn.innerHTML = originalText;
-            
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'form-error';
-            errorDiv.style.cssText = 'padding: 12px; margin-top: 16px; border-radius: 8px; background: rgba(239, 68, 68, 0.1); color: #ef4444; font-size: 0.9rem;';
-            errorDiv.innerHTML = '❌ Something went wrong. Please try again or email us at <a href="mailto:hello@taskmeridian.com" style="color: #ef4444; text-decoration: underline;">hello@taskmeridian.com</a>';
-            
-            const existingError = form.querySelector('.form-error');
-            if (existingError) existingError.remove();
-            form.appendChild(errorDiv);
-        }
-    });
-}
-
-// Initialize booking form
-document.addEventListener('DOMContentLoaded', initBookingForm);
 
 // ========================================
 // Legal Tabs Functionality
