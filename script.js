@@ -119,16 +119,10 @@ function initSmoothScroll() {
             const href = this.getAttribute('href');
             if (href === '#') return;
             
-            e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                const navHeight = document.querySelector('.nav').offsetHeight;
-                const targetPosition = target.offsetTop - navHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
                 
                 // Track scroll to section
                 trackEvent('scroll_to_section', { section: href });
