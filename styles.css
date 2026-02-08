@@ -2359,71 +2359,72 @@ details[open] .workflow-toggle-icon {
 }
 
 /* ========================================
-   TRUST INDICATORS SECTION
+   TRUST BAR
    ======================================== */
-.trust-indicators-section {
-    padding: 60px 0;
-    background: var(--primary);
-    color: var(--white);
+.trust-bar {
+    background: #F8FAFC;
+    padding: 80px 24px;
+    border-top: 1px solid #E2E8F0;
+    border-bottom: 1px solid #E2E8F0;
 }
-
-.trust-grid {
+.trust-bar-container {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+.trust-bar-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-bottom: 40px;
+    gap: 32px;
 }
-
-.trust-item-large {
+.trust-bar-item {
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    padding: 24px;
-    background: rgba(255,255,255,0.05);
+}
+.trust-bar-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.trust-icon {
-    font-size: 2rem;
-    flex-shrink: 0;
-}
-
-.trust-content h4 {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 4px;
-}
-
-.trust-content p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 0;
-}
-
-.trust-divider {
-    height: 1px;
-    background: rgba(255,255,255,0.1);
-    margin-bottom: 32px;
-}
-
-.trust-process {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    flex-wrap: wrap;
-}
-
-.process-item {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 15px;
-    color: rgba(255,255,255,0.9);
+    justify-content: center;
+}
+.trust-bar-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.trust-bar-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0F172A;
+}
+.trust-bar-desc {
+    font-size: 13px;
+    color: #94A3B8;
+    line-height: 1.4;
 }
 
-.process-icon {
-    font-size: 1.25rem;
+/* Tablet */
+@media (max-width: 900px) {
+    .trust-bar-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 540px) {
+    .trust-bar-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .trust-bar {
+        padding: 56px 24px;
+    }
 }
 
 /* ========================================
@@ -2701,25 +2702,6 @@ details[open] .workflow-toggle-icon {
 
 .cta-buttons {
     margin-bottom: 32px;
-}
-
-.cta-trust {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-bottom: 24px;
-}
-
-.trust-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    color: var(--text-secondary);
-}
-
-.trust-item span {
-    font-size: 1.2rem;
 }
 
 .cta-small {
@@ -3231,11 +3213,6 @@ details[open] .workflow-toggle-icon {
         grid-template-columns: 1fr;
     }
     
-    .cta-trust {
-        flex-direction: column;
-        gap: 16px;
-    }
-    
     .pricing-guarantee {
         flex-direction: column;
         text-align: center;
@@ -3284,17 +3261,6 @@ details[open] .workflow-toggle-icon {
     
     .result-arrow {
         transform: rotate(90deg);
-    }
-    
-    .trust-process {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-    }
-    
-    .trust-item-large {
-        flex-direction: column;
-        text-align: center;
     }
     
     .metrics-grid {
