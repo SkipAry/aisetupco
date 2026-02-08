@@ -1947,6 +1947,26 @@ details[open] .workflow-toggle-icon {
 }
 
 /* Mobile */
+@media (max-width: 768px) {
+    .comparison-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+        position: sticky;
+        left: 0;
+        background: #FFFFFF;
+        z-index: 1;
+        min-width: 100px;
+        box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+    }
+    .comparison-table th:first-child {
+        background: #F8FAFC;
+    }
+}
+
 @media (max-width: 640px) {
     .comparison-headline {
         font-size: 32px;
