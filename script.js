@@ -283,6 +283,14 @@ function initNavbar() {
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        // Close mobile menu when any link is clicked
+        const allNavLinks = navLinks.querySelectorAll('a');
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
     }
 }
 
