@@ -48,6 +48,8 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 body {
@@ -58,6 +60,8 @@ body {
     background: var(--white);
     -webkit-font-smoothing: antialiased;
     padding-top: 72px;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 .container {
@@ -1867,6 +1871,24 @@ details[open] .workflow-toggle-icon {
     border-radius: 16px;
     border: 1px solid #E2E8F0;
     background: #FFFFFF;
+    width: 100%;
+    position: relative;
+}
+
+/* Scroll hint for mobile */
+.comparison-scroll-hint {
+    display: none;
+    text-align: center;
+    color: #94A3B8;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .comparison-scroll-hint {
+        display: block;
+    }
 }
 
 .comparison-table {
