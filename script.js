@@ -266,32 +266,6 @@ function trackEvent(eventName, params = {}) {
 }
 
 // ========================================
-// Legal Tabs Functionality
-// ========================================
-function initLegalTabs() {
-    const tabs = document.querySelectorAll('.legal-tab');
-    const contents = document.querySelectorAll('.legal-content');
-    
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // Remove active from all
-            tabs.forEach(t => t.classList.remove('active'));
-            contents.forEach(c => c.classList.remove('active'));
-            
-            // Add active to clicked
-            tab.classList.add('active');
-            const tabId = tab.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
-}
-
-// Initialize legal tabs if on legal page
-if (document.querySelector('.legal-tabs')) {
-    initLegalTabs();
-}
-
-// ========================================
 // Navbar Scroll Behavior
 // ========================================
 function initNavbar() {
