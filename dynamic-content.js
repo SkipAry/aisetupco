@@ -91,19 +91,7 @@
     }
     
     function personalizeForReturningVisitor() {
-        // Change hero headline for returning visitors
-        const heroTitle = document.querySelector('.hero-title');
-        if (heroTitle) {
-            heroTitle.innerHTML = 'Welcome Back! Ready to Automate Your Work?';
-        }
-        
-        // Change CTA text
-        const heroCta = document.querySelector('.hero-ctas .btn-primary span');
-        if (heroCta) {
-            heroCta.textContent = 'Book Your Call Now';
-        }
-        
-        // Scroll returning visitors to pricing faster
+        // Track returning visitor behavior
         const pricingCta = document.querySelector('a[href="#pricing"]');
         if (pricingCta) {
             pricingCta.addEventListener('click', () => {
@@ -153,27 +141,6 @@
         const path = window.location.pathname;
         const isReturning = isReturningVisitor();
         
-        // If returning visitor lands on homepage, optionally redirect to pricing
-        if (path === '/' || path === '/index.html') {
-            if (isReturning && getVisitCount() > 2) {
-                // Add a banner instead of redirect
-                showReturnVisitorBanner();
-            }
-        }
-    }
-    
-    function showReturnVisitorBanner() {
-        const banner = document.createElement('div');
-        banner.className = 'return-visitor-banner';
-        banner.innerHTML = `
-            <div style="background: linear-gradient(135deg, #d97757 0%, #c46a4a 100%); color: white; padding: 16px; text-align: center; position: relative;">
-                <span style="font-weight: 600;"> Welcome back!</span> Ready to get started? 
-                <a href="#pricing" style="color: white; text-decoration: underline; font-weight: 600; margin-left: 8px;">View Pricing →</a>
-                <button onclick="this.parentElement.remove()" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">×</button>
-            </div>
-        `;
-        
-        document.body.insertBefore(banner, document.body.firstChild);
     }
     
     // ========================================
