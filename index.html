@@ -1201,134 +1201,105 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <div class="section-header centered">
-                <span class="section-badge">FAQ</span>
-                <h2>Questions? We Have Answers.</h2>
-            </div>
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="faq-container">
+            <h2 class="faq-headline">Frequently Asked Questions</h2>
 
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <button class="faq-question">
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>What if I'm not tech-savvy?</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="3" x2="8" y2="13"/><line class="faq-icon-h" x1="3" y1="8" x2="13" y2="8"/></svg>
+                    </summary>
                     <div class="faq-answer">
-                        <p><strong>Perfect! You're our ideal client.</strong> We specifically designed our service for busy professionals who don't have time to learn tech. You describe your problem in plain English, we build the solution. We handle all the technical complexity—you just use the results. Most of our clients are consultants, founders, and professionals who want results without the learning curve.</p>
+                        <p>That's exactly who we built this service for. You don't need to understand AI, coding, or automation platforms. We handle the entire technical process — from analysis to deployment. You just tell us what tasks consume your time, and we build the system to handle them.</p>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>Which AI tools do you use?</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="3" x2="8" y2="13"/><line class="faq-icon-h" x1="3" y1="8" x2="13" y2="8"/></svg>
+                    </summary>
                     <div class="faq-answer">
-                        <p>We use <strong>enterprise-grade AI tools</strong> including Claude AI, ChatGPT API, and Perplexity for AI tasks. For automation, we use Make.com, Zapier, and n8n. We integrate with your existing tools like Gmail, Notion, Slack, Google Sheets, Calendly, and 5000+ other apps. We choose the best combination based on your specific needs and budget.</p>
+                        <p>We use enterprise-grade AI tools including Claude AI, ChatGPT API, and Perplexity for intelligence tasks. For automation orchestration, we work with Make.com, Zapier, and n8n. The specific combination depends on your workflow requirements — we always recommend the best tool for each job.</p>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>Is my data safe?</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="3" x2="8" y2="13"/><line class="faq-icon-h" x1="3" y1="8" x2="13" y2="8"/></svg>
+                    </summary>
                     <div class="faq-answer">
-                        <p><strong>Absolutely.</strong> We implement multiple layers of security: 256-bit SSL encryption for all data transfers, secure API key storage, and isolated environments per client. Your data is <strong>never used to train AI models</strong>. We can sign NDAs for sensitive work and even set up private AI instances if required. We're GDPR compliant and follow industry best practices for data protection.</p>
+                        <p>Absolutely. We implement multiple layers of security: 256-bit SSL encryption for all data transfers, secure API connections with OAuth where possible, and strict access controls. Your data is never used to train AI models, and we offer NDA agreements for sensitive engagements.</p>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>What if the automation breaks?</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="3" x2="8" y2="13"/><line class="faq-icon-h" x1="3" y1="8" x2="13" y2="8"/></svg>
+                    </summary>
                     <div class="faq-answer">
-                        <p>We build <strong>robust systems with error handling</strong>, but if something does break, you're covered. During your 90-day support period, we fix any issues at no extra cost. After that, you can opt for our maintenance plan or handle it yourself—we provide full documentation. Most issues are resolved within 24 hours. We also build fail-safes so you never lose important data.</p>
+                        <p>We build robust systems with comprehensive error handling, but if something does break, you're covered. During your 90-day support period, we diagnose and fix any issues at no additional cost, typically within 24 hours. We also build in monitoring so many issues are caught before you even notice them.</p>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>Can I modify automations later?</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="3" x2="8" y2="13"/><line class="faq-icon-h" x1="3" y1="8" x2="13" y2="8"/></svg>
+                    </summary>
                     <div class="faq-answer">
-                        <p><strong>Yes, and we teach you how.</strong> During handoff, we provide video documentation showing exactly how to make common changes. For simple tweaks (like updating email templates, changing trigger words), you can do it yourself. For complex modifications, we're always available. Many clients start with us handling everything, then gradually take over as they get comfortable.</p>
+                        <p>Yes, and we teach you how. During handoff, we provide comprehensive documentation showing exactly how to make common adjustments. For simple changes, you'll be fully self-sufficient. For complex modifications, our support team is available during your 90-day support window.</p>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Do you train my team?</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Do you provide team training?</span>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="3" x2="8" y2="13"/><line class="faq-icon-h" x1="3" y1="8" x2="13" y2="8"/></svg>
+                    </summary>
                     <div class="faq-answer">
-                        <p><strong>Yes, training is included.</strong> Our Professional and Enterprise plans include dedicated training sessions. We record these sessions so your team can reference them later. We also create written documentation tailored to your specific setup. For Enterprise clients, we offer ongoing training as your team grows or processes change.</p>
+                        <p>Yes, training is included in all plans. Our Professional and Enterprise plans include multiple dedicated training sessions. We record all sessions for future reference and provide written documentation your team can refer to at any time.</p>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What's included in support?</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>How do you handle credentials and passwords?</span>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="3" x2="8" y2="13"/><line class="faq-icon-h" x1="3" y1="8" x2="13" y2="8"/></svg>
+                    </summary>
                     <div class="faq-answer">
-                        <p>Support includes: <strong>troubleshooting issues</strong>, answering questions about how things work, <strong>minor tweaks and adjustments</strong> to your automations, and guidance on best practices. Starter plan includes 90 days email support. Professional includes 90 days priority support with faster response times. Enterprise includes ongoing support with a dedicated consultant.</p>
+                        <p>We never ask for your passwords. We use secure OAuth connections wherever possible — Gmail, Notion, Slack, and most major platforms support this. For services that require API keys, we guide you through generating them yourself and entering them directly into the automation platform.</p>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How do you handle passwords?</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>What if I'm not satisfied with the results?</span>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="3" x2="8" y2="13"/><line class="faq-icon-h" x1="3" y1="8" x2="13" y2="8"/></svg>
+                    </summary>
                     <div class="faq-answer">
-                        <p><strong>We never ask for your passwords.</strong> We use secure OAuth connections where possible (like Gmail, Notion, Slack). For services that require API keys, we guide you through creating limited-access keys. We recommend using password managers and sharing access through secure methods. After setup, you can revoke our access anytime while keeping your automations running.</p>
+                        <p>We offer a 100% money-back guarantee. If your AI system doesn't save you at least 5 hours in your first month, we'll refund every rupee — no questions asked. We're confident in our delivery because we don't proceed with the build until you've approved the blueprint.</p>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What if I'm not satisfied?</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Can you integrate with my existing tools?</span>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="3" x2="8" y2="13"/><line class="faq-icon-h" x1="3" y1="8" x2="13" y2="8"/></svg>
+                    </summary>
                     <div class="faq-answer">
-                        <p>We offer a <strong>100% money-back guarantee</strong>. If your AI system doesn't save you at least 5 hours in your first month, we'll refund your entire payment—no questions asked. We're confident in our work because we've seen the results. But we also know every business is different, so we make it risk-free for you to try.</p>
+                        <p>Almost certainly. Through Make.com and Zapier, we can connect with over 5,000 applications. Popular integrations include Gmail, Outlook, Google Sheets, Notion, Slack, Trello, Asana, HubSpot, and many more. During the discovery call, we'll confirm compatibility with your specific tool stack.</p>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Can you integrate with [specific tool]?</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>We integrate with <strong>5000+ apps</strong> through platforms like Make.com and Zapier. Popular ones include Gmail, Outlook, Notion, Airtable, Slack, Microsoft Teams, Google Sheets, Excel, Calendly, Zoom, HubSpot, Salesforce, and many more. During our discovery call, we'll confirm integration possibilities for your specific tools. If direct integration isn't available, we often find creative workarounds.</p>
-                    </div>
-                </div>
+                </details>
             </div>
 
-            <div class="faq-cta">
-                <p class="faq-cta-text">Still have questions?</p>
-                <a href="https://wa.me/918421884545" class="btn btn-outline" data-cta="faq-whatsapp" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                    Chat on WhatsApp
-                </a>
+            <div class="faq-contact">
+                <p>Have more questions? <a href="mailto:hello@taskmeridian.com" class="faq-contact-link">hello@taskmeridian.com</a></p>
             </div>
         </div>
     </section>

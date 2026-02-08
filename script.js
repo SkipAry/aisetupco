@@ -13,28 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========================================
-// FAQ Accordion
+// FAQ Accordion (Native details/summary)
 // ========================================
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
     
     faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', () => {
-            // Track FAQ open event
-            const questionText = question.querySelector('span').textContent;
-            trackEvent('faq_open', { question: questionText });
-            
-            // Close others
-            faqItems.forEach(other => {
-                if (other !== item) {
-                    other.classList.remove('active');
-                }
-            });
-            
-            // Toggle current
-            item.classList.toggle('active');
+        item.addEventListener('toggle', () => {
+            if (item.open) {
+                // Track FAQ open event
+                const questionText = item.querySelector('.faq-question span').textContent;
+                trackEvent('faq_open', { question: questionText });
+            }
         });
     });
 }
