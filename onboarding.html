@@ -367,7 +367,7 @@
                 itemEl.innerHTML = `
                     <div class="checklist-header" onclick="toggleItem(${item.id})">
                         <div class="checkbox">
-                            ${item.status === 'completed' ? '✓' : ''}
+                            ${item.status === 'completed' ? '' : ''}
                         </div>
                         <div class="checklist-title">
                             <h3>${item.title}</h3>
@@ -409,7 +409,7 @@
 
         function getStatusText(status) {
             const statusMap = {
-                'completed': '✓ Completed',
+                'completed': ' Completed',
                 'in_progress': '⏳ In Progress',
                 'pending': '○ Pending'
             };

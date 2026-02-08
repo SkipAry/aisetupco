@@ -3,13 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize all components
     initNavbar();
     initFAQ();
-
     initCalculator();
     initSmoothScroll();
     initBookingForm();
     initAnalytics();
     initScrollTracking();
-
+    initScrollAnimations();
 });
 
 // ========================================
@@ -281,30 +280,22 @@ function initLegalTabs() {
     
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            const targetId = tab.dataset.tab;
-            
+            // Remove active from all
             tabs.forEach(t => t.classList.remove('active'));
             contents.forEach(c => c.classList.remove('active'));
             
+            // Add active to clicked
             tab.classList.add('active');
-            document.getElementById(targetId).classList.add('active');
-            
-            trackEvent('legal_tab_click', { tab: targetId });
+            const tabId = tab.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
         });
     });
 }
 
-// Global function for footer links
-function showLegalTab(tabName) {
-    const tab = document.querySelector(`.legal-tab[data-tab="${tabName}"]`);
-    if (tab) {
-        tab.click();
-        document.getElementById('legal').scrollIntoView({ behavior: 'smooth' });
-    }
+// Initialize legal tabs if on legal page
+if (document.querySelector('.legal-tabs')) {
+    initLegalTabs();
 }
-
-// Initialize legal tabs
-document.addEventListener('DOMContentLoaded', initLegalTabs);
 
 // ========================================
 // Navbar Scroll Behavior
@@ -325,4 +316,24 @@ function initNavbar() {
             navLinks.classList.toggle('active');
         });
     }
+}
+
+// ========================================
+// Scroll-triggered fade-up animations
+// ========================================
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        observer.observe(el);
+    });
 }

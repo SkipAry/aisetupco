@@ -167,7 +167,7 @@
         banner.className = 'return-visitor-banner';
         banner.innerHTML = `
             <div style="background: linear-gradient(135deg, #d97757 0%, #c46a4a 100%); color: white; padding: 16px; text-align: center; position: relative;">
-                <span style="font-weight: 600;">👋 Welcome back!</span> Ready to get started? 
+                <span style="font-weight: 600;"> Welcome back!</span> Ready to get started? 
                 <a href="#pricing" style="color: white; text-decoration: underline; font-weight: 600; margin-left: 8px;">View Pricing →</a>
                 <button onclick="this.parentElement.remove()" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">×</button>
             </div>
