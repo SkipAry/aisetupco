@@ -3254,7 +3254,37 @@ details[open] .faq-icon .faq-icon-h {
         display: block;
         padding-left: 0;
     }
-    
+
+    /* Uniform section spacing on mobile */
+    .problem,
+    .solution,
+    .process-visual,
+    .process-timeline,
+    .use-cases,
+    .capabilities,
+    .workflows,
+    .calculator,
+    .comparison,
+    .tech-stack,
+    .pricing,
+    .faq,
+    .about,
+    .final-cta {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    /* Slightly smaller padding for accent/utility sections */
+    .metrics-bar {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .trust-bar {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
     .services-grid,
     .pricing-grid,
     .results-grid,
