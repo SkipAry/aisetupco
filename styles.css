@@ -1832,6 +1832,60 @@ details[open] .workflow-toggle-icon {
     }
 }
 
+/* Calculator slider — mobile touch targets */
+@media (max-width: 768px) {
+
+    /* Expand touch target to 44px while keeping track visually thin */
+    .calculator-range {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 44px;
+        background: transparent;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .calculator-range::-webkit-slider-runnable-track {
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 3px;
+    }
+
+    .calculator-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #1e293b;
+        margin-top: -11px;
+        cursor: grab;
+    }
+
+    /* Firefox */
+    .calculator-range::-moz-range-track {
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 3px;
+    }
+
+    .calculator-range::-moz-range-thumb {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #1e293b;
+        border: none;
+        cursor: grab;
+    }
+
+    /* Hourly rate input — minimum 44px touch target */
+    #calc-rate {
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+
+}
+
 /* ========================================
    COMPARISON SECTION
    ======================================== */
