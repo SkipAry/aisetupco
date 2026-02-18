@@ -3066,6 +3066,49 @@ details[open] .faq-icon .faq-icon-h {
         gap: 16px;
         text-align: center;
     }
+
+    /* Footer links — 44px touch targets */
+    .footer-column a,
+    .footer-email,
+    .footer-logo {
+        display: block;
+        padding: 10px 4px;
+        min-height: 44px;
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    /* Footer LinkedIn icon — 44px touch target */
+    .footer-social {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 8px;
+    }
+
+    /* Inline CTA links */
+    .capabilities-link,
+    .comparison-link {
+        display: inline-block;
+        padding: 12px 0;
+        min-height: 44px;
+    }
+
+    /* Privacy policy link near booking form */
+    .final-cta-privacy a {
+        display: inline-block;
+        padding: 14px 5px;
+        min-height: 44px;
+        font-size: 14px;
+    }
+
+    /* About section LinkedIn link */
+    .about-linkedin {
+        min-height: 44px;
+        padding: 10px 0;
+    }
 }
 
 @media (max-width: 480px) {
