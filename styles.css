@@ -3506,3 +3506,29 @@ details[open] .faq-icon .faq-icon-h {
         justify-content: center;
     }
 }
+
+/* Mobile typography — minimum font sizes */
+@media (max-width: 768px) {
+
+    /* Hero CTA buttons: 15px → 16px */
+    .hero-cta-primary,
+    .hero-cta-secondary,
+    .btn-primary,
+    .btn-secondary {
+        font-size: 16px;
+    }
+
+    /* All form inputs — prevents iOS Safari auto-zoom (fires below 16px) */
+    input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+    /* Section eyebrow labels: 12px → 13px (nav links already 16px) */
+    .hero-eyebrow,
+    .section-eyebrow {
+        font-size: 13px;
+    }
+
+}
