@@ -3269,13 +3269,28 @@ details[open] .faq-icon .faq-icon-h {
     .nav-links.active {
         display: flex;
     }
-    
+
+    .nav-links a {
+        display: block;
+        padding: 12px 20px;
+        font-size: 16px;
+        min-height: 44px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
     .nav-cta {
         display: none;
     }
     
     .nav-hamburger {
         display: flex;
+        padding: 10px 6px;
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
     }
     
     /* Center-align dropdown menu with main nav items */
@@ -3289,6 +3304,11 @@ details[open] .faq-icon .faq-icon-h {
 
     .dropdown-trigger {
         text-align: center;
+        display: block;
+        padding: 12px 20px;
+        font-size: 16px;
+        min-height: 44px;
+        line-height: 1.2;
     }
 
     .dropdown-menu {
@@ -3306,7 +3326,10 @@ details[open] .faq-icon .faq-icon-h {
     .dropdown-menu a {
         text-align: center;
         display: block;
-        padding-left: 0;
+        padding: 12px 20px;
+        font-size: 16px;
+        min-height: 44px;
+        line-height: 1.2;
     }
 
     /* Uniform section spacing on mobile */
