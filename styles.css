@@ -36,7 +36,7 @@
     --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
     
     --max-width: 1120px;
-    --section-padding: 120px;
+    --section-padding: 80px;
 }
 
 * {
@@ -557,7 +557,7 @@ a:hover {
    ======================================== */
 .problem {
     background: #FFFFFF;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 
 .problem-container {
@@ -653,7 +653,7 @@ a:hover {
    ======================================== */
 .solution {
     background: #F8FAFC;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 
 .solution-container {
@@ -749,7 +749,7 @@ a:hover {
    ======================================== */
 .capabilities {
     background: #F8FAFC;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 
 .capabilities-container {
@@ -949,7 +949,7 @@ a:hover {
    ======================================== */
 .process-timeline {
     background: #FFFFFF;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 
 .process-timeline-container {
@@ -1123,7 +1123,7 @@ a:hover {
    ======================================== */
 .use-cases {
     background: #FFFFFF;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 
 .use-cases-container {
@@ -1267,7 +1267,7 @@ a:hover {
    ======================================== */
 .workflows {
     background: #0F172A;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 
 .workflows-container {
@@ -1485,7 +1485,7 @@ details[open] .workflow-toggle-icon {
    ======================================== */
 .calculator {
     background: #FFFFFF;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 
 .calculator-container {
@@ -1798,7 +1798,7 @@ details[open] .workflow-toggle-icon {
    ======================================== */
 .comparison {
     background: #F8FAFC;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 .comparison-container {
     max-width: 960px;
@@ -1971,7 +1971,7 @@ details[open] .workflow-toggle-icon {
    ======================================== */
 .tech-stack {
     background: #0F172A;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 .tech-stack-container {
     max-width: 1120px;
@@ -2083,7 +2083,7 @@ details[open] .workflow-toggle-icon {
    ======================================== */
 .metrics-bar {
     background: #FFFFFF;
-    padding: 80px 24px;
+    padding: 56px 24px;
     border-top: 1px solid #E2E8F0;
     border-bottom: 1px solid #E2E8F0;
 }
@@ -2170,7 +2170,7 @@ details[open] .workflow-toggle-icon {
 
 .pricing {
     background: #FFFFFF;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 
 .pricing-container {
@@ -2367,7 +2367,7 @@ details[open] .workflow-toggle-icon {
    ======================================== */
 .trust-bar {
     background: #F8FAFC;
-    padding: 80px 24px;
+    padding: 40px 24px;
     border-top: 1px solid #E2E8F0;
     border-bottom: 1px solid #E2E8F0;
 }
@@ -2436,7 +2436,7 @@ details[open] .workflow-toggle-icon {
    ======================================== */
 .faq {
     background: #FFFFFF;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 .faq-container {
     max-width: 720px;
@@ -2561,7 +2561,7 @@ details[open] .faq-icon .faq-icon-h {
    ======================================== */
 .about {
     background: #FFFFFF;
-    padding: 120px 24px;
+    padding: 80px 24px;
 }
 .about-container {
     max-width: 1040px;
@@ -2688,7 +2688,7 @@ details[open] .faq-icon .faq-icon-h {
    ======================================== */
 .final-cta {
     background: #0F172A;
-    padding: 120px 24px;
+    padding: 80px 24px;
     border-bottom: 1px solid #1E293B;
 }
 .final-cta-container {
