@@ -1093,7 +1093,7 @@ a:hover {
 .process-timeline-cta-note {
     font-size: 14px;
     color: #94A3B8;
-    margin-top: 12px;
+    margin-top: 20px;
 }
 
 /* Timeline mobile */
@@ -2807,7 +2807,7 @@ details[open] .faq-icon .faq-icon-h {
     font-size: 12px;
     color: #64748B;
     text-align: center;
-    margin: 0;
+    margin-top: 20px;
 }
 .final-cta-privacy a {
     color: #94A3B8;
