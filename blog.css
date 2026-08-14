@@ -6,19 +6,19 @@
 .blog-header {
     padding: 80px 0 40px;
     text-align: center;
-    background: #F8FAFC;
+    background: #f8f9fb;
 }
 
 .blog-header h1 {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     margin-bottom: 16px;
-    color: #0F172A;
+    color: #0b3558;
 }
 
 .blog-intro {
     font-size: 1.2rem;
-    color: #64748B;
+    color: #476788;
     max-width: 600px;
     margin: 0 auto 32px;
 }
@@ -32,33 +32,37 @@
 }
 
 .category-btn {
+    /* 44px minimum tap height; padding alone left these at 36px */
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     padding: 10px 24px;
     background: white;
-    border: 1px solid #E2E8F0;
-    border-radius: 100px;
+    border: 1px solid #d4e0ed;
+    border-radius: 9999px;
     font-family: inherit;
     font-size: 0.9rem;
     font-weight: 500;
-    color: #475569;
+    color: #476788;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .category-btn:hover {
-    border-color: #94A3B8;
-    color: #0F172A;
+    border-color: #a6bbd1;
+    color: #0b3558;
 }
 
 .category-btn.active {
-    background: #0F172A;
-    border-color: #0F172A;
+    background: #0b3558;
+    border-color: #0b3558;
     color: white;
 }
 
 /* Featured Post */
 .featured-post {
     padding: 40px 0;
-    background: #F8FAFC;
+    background: #f8f9fb;
 }
 
 .featured-card {
@@ -68,14 +72,14 @@
     background: white;
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid #E2E8F0;
+    border: 1px solid #d4e0ed;
     text-decoration: none;
     color: inherit;
     transition: all 0.2s ease;
 }
 
 .featured-card:hover {
-    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+    box-shadow: var(--shadow-lg);
     transform: translateY(-2px);
 }
 
@@ -91,11 +95,11 @@
     align-items: center;
     justify-content: center;
     min-height: 400px;
-    background: #F1F5F9;
+    background: #f0f3f8;
 }
 
 .post-thumbnail-placeholder.featured-placeholder {
-    background: #1E293B;
+    background: #14456f;
 }
 
 .post-thumbnail-placeholder svg {
@@ -106,10 +110,10 @@
     position: absolute;
     top: 20px;
     left: 20px;
-    background: #0F172A;
+    background: #0b3558;
     color: white;
     padding: 8px 16px;
-    border-radius: 100px;
+    border-radius: 9999px;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -132,20 +136,20 @@
 }
 
 .post-category {
-    background: #F1F5F9;
-    color: #475569;
+    background: #f0f3f8;
+    color: #476788;
     padding: 4px 12px;
-    border-radius: 100px;
+    border-radius: 9999px;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border: 1px solid #E2E8F0;
+    border: 1px solid #d4e0ed;
 }
 
 .post-date, .read-time {
     font-size: 0.85rem;
-    color: #94A3B8;
+    color: #476788;
 }
 
 .featured-content h2 {
@@ -184,7 +188,7 @@
 /* Blog Grid */
 .blog-grid-section {
     padding: 60px 0;
-    background: #F8FAFC;
+    background: #f8f9fb;
 }
 
 .blog-grid {
@@ -195,14 +199,14 @@
 
 .blog-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid #E2E8F0;
+    border: 1px solid #d4e0ed;
     transition: all 0.2s ease;
 }
 
 .blog-card:hover {
-    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+    box-shadow: var(--shadow-md);
     transform: translateY(-2px);
 }
 
@@ -219,7 +223,7 @@
 
 .blog-card-image .post-thumbnail-placeholder {
     min-height: 200px;
-    background: #F1F5F9;
+    background: #f0f3f8;
 }
 
 .blog-card-content {
@@ -245,11 +249,11 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 16px;
-    border-top: 1px solid #E2E8F0;
+    border-top: 1px solid #d4e0ed;
 }
 
 .read-more {
-    color: #0F172A;
+    color: #0b3558;
     font-weight: 500;
     font-size: 0.9rem;
 }
@@ -262,8 +266,8 @@
 
 .load-more-btn {
     background: white;
-    border: 1px solid #E2E8F0;
-    color: #0F172A;
+    border: 1px solid #d4e0ed;
+    color: #0b3558;
     font-weight: 500;
     padding: 12px 32px;
     border-radius: 8px;
@@ -274,12 +278,12 @@
 }
 
 .load-more-btn:hover {
-    border-color: #94A3B8;
+    border-color: #a6bbd1;
 }
 
 /* Active Nav State */
 .nav-links a.active {
-    color: #0F172A;
+    color: #0b3558;
     font-weight: 600;
 }
 

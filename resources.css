@@ -5,19 +5,19 @@
 .resources-header {
     padding: 80px 0 40px;
     text-align: center;
-    background: #F8FAFC;
+    background: #f8f9fb;
 }
 
 .resources-header h1 {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     margin-bottom: 16px;
-    color: #0F172A;
+    color: #0b3558;
 }
 
 .resources-intro {
     font-size: 1.2rem;
-    color: #64748B;
+    color: #476788;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -37,29 +37,29 @@
 .tool-card {
     background: white;
     padding: 32px;
-    border-radius: 12px;
-    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    border: 1px solid #d4e0ed;
     position: relative;
     transition: all 0.2s ease;
 }
 
 .tool-card:hover {
-    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+    box-shadow: var(--shadow-md);
     transform: translateY(-2px);
 }
 
 .tool-card.featured {
-    border-color: #0F172A;
+    border-color: #0b3558;
 }
 
 .tool-badge {
     position: absolute;
     top: -10px;
     right: 20px;
-    background: #0F172A;
+    background: #0b3558;
     color: white;
     padding: 4px 12px;
-    border-radius: 100px;
+    border-radius: 9999px;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -75,13 +75,13 @@
 .tool-logo {
     width: 56px;
     height: 56px;
-    border-radius: 12px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #F1F5F9;
-    border: 1px solid #E2E8F0;
-    color: #0F172A;
+    background: #f0f3f8;
+    border: 1px solid #d4e0ed;
+    color: #0b3558;
     font-size: 1.25rem;
     font-weight: 700;
 }
@@ -90,22 +90,22 @@
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 4px;
-    color: #0F172A;
+    color: #0b3558;
 }
 
 .tool-pricing {
     font-size: 0.85rem;
-    color: #475569;
+    color: #476788;
     font-weight: 500;
 }
 
 .tool-pricing-paid {
-    color: #94A3B8;
+    color: #476788;
 }
 
 .tool-description {
     font-size: 0.95rem;
-    color: #64748B;
+    color: #476788;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -113,7 +113,7 @@
 .tool-use-cases h4 {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #94A3B8;
+    color: #476788;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 12px;
@@ -127,7 +127,7 @@
 .tool-use-cases li {
     padding: 6px 0;
     font-size: 0.9rem;
-    color: #64748B;
+    color: #476788;
     padding-left: 20px;
     position: relative;
 }
@@ -136,11 +136,15 @@
     content: "→";
     position: absolute;
     left: 0;
-    color: #3B82F6;
+    color: #006bff;
 }
 
 .tool-link {
-    color: #0F172A;
+    /* card CTA, not inline prose: needs a 44px tap height */
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: #0b3558;
     font-weight: 500;
     text-decoration: none;
     font-size: 0.9rem;
@@ -148,12 +152,12 @@
 }
 
 .tool-link:hover {
-    color: #3B82F6;
+    color: #006bff;
 }
 
 .tool-btn {
     display: inline-block;
-    background: #0F172A;
+    background: #0b3558;
     color: white;
     padding: 10px 20px;
     border-radius: 8px;
@@ -164,13 +168,13 @@
 }
 
 .tool-btn:hover {
-    background: #1E293B;
+    background: #14456f;
 }
 
 /* Templates Section */
 .templates-section {
     padding: 80px 0;
-    background: #F8FAFC;
+    background: #f8f9fb;
 }
 
 .templates-grid {
@@ -182,14 +186,14 @@
 .template-card {
     background: white;
     padding: 32px;
-    border-radius: 12px;
-    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    border: 1px solid #d4e0ed;
     text-align: center;
     transition: all 0.2s ease;
 }
 
 .template-card:hover {
-    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+    box-shadow: var(--shadow-md);
     transform: translateY(-2px);
 }
 
@@ -197,21 +201,21 @@
     width: 48px;
     height: 48px;
     margin: 0 auto 16px;
-    background: #F1F5F9;
-    border-radius: 12px;
-    border: 1px solid #E2E8F0;
+    background: #f0f3f8;
+    border-radius: 16px;
+    border: 1px solid #d4e0ed;
 }
 
 .template-card h3 {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 12px;
-    color: #0F172A;
+    color: #0b3558;
 }
 
 .template-card > p {
     font-size: 0.9rem;
-    color: #64748B;
+    color: #476788;
     line-height: 1.6;
     margin-bottom: 16px;
 }
@@ -225,7 +229,7 @@
 .template-features li {
     padding: 6px 0;
     font-size: 0.85rem;
-    color: #64748B;
+    color: #476788;
     padding-left: 20px;
     position: relative;
 }
@@ -234,7 +238,7 @@
     content: "✓";
     position: absolute;
     left: 0;
-    color: #3B82F6;
+    color: #006bff;
     font-weight: 600;
 }
 
@@ -290,6 +294,9 @@
 }
 
 .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     color: var(--color-primary);
     font-weight: 600;
     text-decoration: none;

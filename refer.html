@@ -15,7 +15,7 @@
     <!-- Preconnect to frequently used origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         .refer-page {
@@ -39,7 +39,7 @@
             background: var(--color-primary);
             color: white;
             padding: 12px 24px;
-            border-radius: 100px;
+            border-radius: 9999px;
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 24px;
@@ -109,11 +109,11 @@
         .share-box {
             background: white;
             padding: 48px;
-            border-radius: 20px;
+            border-radius: 24px;
             max-width: 700px;
             margin: 0 auto;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 30px rgba(71, 103, 136,0.08);
         }
         
         .share-box h2 {
@@ -125,7 +125,7 @@
         .referral-link-box {
             background: var(--color-bg-alt);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 16px;
             margin-bottom: 32px;
             display: flex;
             gap: 12px;
@@ -153,7 +153,7 @@
             align-items: center;
             gap: 8px;
             padding: 14px 24px;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             transition: transform 0.2s;
@@ -313,7 +313,7 @@
                     <p style="color: var(--color-text-secondary); margin-bottom: 24px;">Share this link with friends. When they book, we'll know you sent them!</p>
                     
                     <div class="referral-link-box">
-                        <input type="text" id="referral-link" value="https://taskmeridian.com/?ref=YOUR_CODE" readonly>
+                        <input type="text" id="referral-link" aria-label="Your referral link" value="https://taskmeridian.com/?ref=YOUR_CODE" readonly>
                         <button class="btn btn-outline" onclick="copyReferralLink()">Copy</button>
                     </div>
                     
@@ -363,7 +363,7 @@
                             <span class="label">Your Rewards</span>
                         </div>
                     </div>
-                    <p style="margin-top: 24px; color: var(--color-text-muted);">Track your referrals in real-time. Rewards are credited after project completion.</p>
+                    <p style="margin-top: 24px; color: var(--color-text-secondary);">Track your referrals in real-time. Rewards are credited after project completion.</p>
                 </div>
             </div>
         </section>
@@ -378,21 +378,21 @@
                         <a href="mailto:hello@taskmeridian.com" class="footer-email">hello@taskmeridian.com</a>
                     </div>
                     <div class="footer-column">
-                        <h4 class="footer-heading">Solutions</h4>
+                        <h2 class="footer-heading">Solutions</h2>
                         <a href="index.html#solutions">Email Automation</a>
                         <a href="index.html#solutions">Smart Scheduling</a>
                         <a href="index.html#solutions">Research & Reports</a>
                         <a href="index.html#solutions">Custom Workflows</a>
                     </div>
                     <div class="footer-column">
-                        <h4 class="footer-heading">Company</h4>
+                        <h2 class="footer-heading">Company</h2>
                         <a href="index.html#about">About</a>
                         <a href="index.html#process">Process</a>
                         <a href="index.html#pricing">Pricing</a>
                         <a href="blog.html">Blog</a>
                     </div>
                     <div class="footer-column">
-                        <h4 class="footer-heading">Legal</h4>
+                        <h2 class="footer-heading">Legal</h2>
                         <a href="privacy-policy.html">Privacy Policy</a>
                         <a href="terms-of-service.html">Terms of Service</a>
                         <a href="refund-policy.html">Refund Policy</a>

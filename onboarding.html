@@ -14,7 +14,7 @@
     <!-- Preconnect to frequently used origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         .onboarding-page {
@@ -48,7 +48,7 @@
             padding: 32px;
             border-radius: 16px;
             margin-bottom: 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(71, 103, 136,0.05);
         }
         
         .progress-header {
@@ -72,14 +72,14 @@
         .progress-bar {
             height: 12px;
             background: var(--color-bg-alt);
-            border-radius: 100px;
+            border-radius: 9999px;
             overflow: hidden;
         }
         
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-            border-radius: 100px;
+            border-radius: 9999px;
             transition: width 0.5s ease;
         }
         
@@ -87,7 +87,7 @@
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(71, 103, 136,0.05);
         }
         
         .checklist-item {
@@ -145,15 +145,15 @@
         
         .checklist-title .status {
             font-size: 0.85rem;
-            color: var(--color-text-muted);
+            color: var(--color-text-secondary);
         }
         
         .checklist-item.completed .status {
-            color: var(--color-success);
+            color: var(--color-success-text);
         }
         
         .expand-icon {
-            color: var(--color-text-muted);
+            color: var(--color-text-secondary);
             transition: transform 0.3s;
         }
         
@@ -161,14 +161,20 @@
             transform: rotate(180deg);
         }
         
+        /* grid-template-rows instead of max-height: no arbitrary 500px ceiling
+           to clip long items, and no layout thrash on every frame. */
         .checklist-content {
-            max-height: 0;
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease;
+        }
+        
+        .checklist-content > * {
             overflow: hidden;
-            transition: max-height 0.3s ease;
         }
         
         .checklist-item.expanded .checklist-content {
-            max-height: 500px;
+            grid-template-rows: 1fr;
         }
         
         .checklist-details {
@@ -186,7 +192,7 @@
         .detail-section h4 {
             font-size: 0.85rem;
             font-weight: 700;
-            color: var(--color-text-muted);
+            color: var(--color-text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 8px;
@@ -218,7 +224,7 @@
         .contact-support {
             background: var(--color-bg-warm);
             padding: 24px;
-            border-radius: 12px;
+            border-radius: 16px;
             margin-top: 20px;
             text-align: center;
         }
@@ -450,21 +456,21 @@
                     <a href="mailto:hello@taskmeridian.com" class="footer-email">hello@taskmeridian.com</a>
                 </div>
                 <div class="footer-column">
-                    <h4 class="footer-heading">Solutions</h4>
+                    <h2 class="footer-heading">Solutions</h2>
                     <a href="index.html#solutions">Email Automation</a>
                     <a href="index.html#solutions">Smart Scheduling</a>
                     <a href="index.html#solutions">Research & Reports</a>
                     <a href="index.html#solutions">Custom Workflows</a>
                 </div>
                 <div class="footer-column">
-                    <h4 class="footer-heading">Company</h4>
+                    <h2 class="footer-heading">Company</h2>
                     <a href="index.html#about">About</a>
                     <a href="index.html#process">Process</a>
                     <a href="index.html#pricing">Pricing</a>
                     <a href="blog.html">Blog</a>
                 </div>
                 <div class="footer-column">
-                    <h4 class="footer-heading">Legal</h4>
+                    <h2 class="footer-heading">Legal</h2>
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-of-service.html">Terms of Service</a>
                     <a href="refund-policy.html">Refund Policy</a>
